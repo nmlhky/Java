@@ -1,7 +1,6 @@
 package Homework;
 import java.util.Scanner;
-import java.io.*;
-import java.util.*;
+
 public class test2ForLoop {
 
 
