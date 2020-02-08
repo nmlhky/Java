@@ -14,7 +14,9 @@ public class original {
         if(c==d){
             System.out.println("world");
         }
-        System.out.println();
+
     }
 }
+
+
 
