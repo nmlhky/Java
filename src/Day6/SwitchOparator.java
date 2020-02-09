@@ -1,32 +1,50 @@
 package Day6;
 
+
 public class SwitchOparator {
     public static void main(String[] args) {
 
-        int grade = 4;
+        int Months = 4;
 
-        switch (grade) {
+        switch (Months) {
             case 1:
-                System.out.println("Monday");
+                System.out.println("January");
                 break;
             case 2:
-                System.out.println("Tuesday");
+                System.out.println("February");
                 break;
             case 3:
-                System.out.println("Wednesday");
+                System.out.println("March");
                 break;
             case 4:
-                System.out.println("Thursday");
+                System.out.println("April");
                 break;
             case 5:
-                System.out.println("Friday");
+                System.out.println("May");
                 break;
             case 6:
-                System.out.println("Saturday");
+                System.out.println("June");
                 break;
             case 7:
-                System.out.println("Sunday");
+                System.out.println("July");
                 break;
+            case 8:
+                System.out.println("August");
+                break;
+            case 9:
+                System.out.println("September");
+                break;
+            case 10:
+                System.out.println("October");
+                break;
+            case 11:
+                System.out.println("November");
+                break;
+            case 12:
+                System.out.println("December");
+                break;
+            default:
+                System.out.println("not ok");
         }
 
     }
