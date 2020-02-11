@@ -1,27 +1,32 @@
 package hackerRank;
 import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 public class loop2 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
 
-            int a = in.nextInt();
-            int b = in.nextInt();
-            int n = in.nextInt();
+                Scanner in = new Scanner(System.in);
+                int t=in.nextInt();
+                for(int i=0;i<t;i++){
+                    int a = in.nextInt();
+                    int b = in.nextInt();
+                    int n = in.nextInt();
 
-            for(int j = 0 ; j<n ; j++){
-                int total = (int) ((Math.pow(2,j)*b) +a) ;
+                    int x = 0;
+
+                    for(int j = 0 ; j<n ; j++){
+
+                        x= (int) Math.pow(2,j)*b + x;
+
+                        System.out.print(a+x+" ");
+
+                    }
+                    System.out.println();
 
 
-                System.out.print (total + a +" ");
+                }
+                in.close();
+
+
             }
-
-            System.out.println();
-
-
-        in.close();
-
-        System.out.println("2 6 14 30 62 126 254 510 1022 2046 ");
-
-
-    }
-}
+        }
