@@ -1,4 +1,4 @@
-package ThirdDay;
+package day3;
 
 public class ifelse {
     public static void main(String[] args) {

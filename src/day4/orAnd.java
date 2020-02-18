@@ -1,8 +1,9 @@
-package FourthDay;
+package day4;
 
 public class orAnd {
     public static void main(String[] args) {
-        if (12>20 || 20 < 30 && 1<24){
+        int i =12;
+        if (i>20 || 20 < 30 && 1<24){
             System.out.println("yes");
         }
     }

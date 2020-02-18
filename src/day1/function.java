@@ -1,7 +1,4 @@
-package firstpackage;
-
-import java.sql.SQLOutput;
-import java.util.Arrays;
+package day1;
 
 public class function {
     public static void  main(String[] args){

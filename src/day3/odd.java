@@ -1,13 +1,13 @@
-package FourthDay;
+package day3;
+
 import java.util.Scanner;
-public class oddeven {
+
+public class odd {
     public static void main(String[] args) {
         Scanner number = new Scanner(System.in);
         int num = number.nextInt();
 
-        if (num%2==0){
-            System.out.println("even");
-        }else{
+        if(num%2 == 1){
             System.out.println("odd");
         }
     }

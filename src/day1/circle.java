@@ -1,4 +1,4 @@
-package firstpackage;
+package day1;
 
 public class circle {
     public static void  main(String[] args){

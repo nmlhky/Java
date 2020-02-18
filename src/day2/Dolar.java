@@ -1,6 +1,4 @@
-package SecondDay;
-
-import java.io.PrintStream;
+package day2;
 
 public class Dolar {
     public static void main(String[] args){

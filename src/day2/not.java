@@ -1,4 +1,4 @@
-package SecondDay;
+package day2;
 
 public class not {
     public static void main(String[] args){

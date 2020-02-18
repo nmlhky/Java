@@ -1,4 +1,4 @@
-package FourthDay;
+package day4;
 import java.util.Scanner;
 public class elseif {
     public static void main(String[] args) {
