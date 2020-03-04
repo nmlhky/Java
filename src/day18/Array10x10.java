@@ -22,7 +22,7 @@ public class Array10x10 {
 
     public static void printarray(int[][] x){
 
-        int totalcolom[] = new int[10];
+        int[] totalcolom = new int[10];
         for (int i = 0 ; i < 10 ; i++){
             int totalrow = 0;
             for (int j = 0 ; j <10 ; j++) {
@@ -30,9 +30,11 @@ public class Array10x10 {
                 totalrow += x[i][j] ;
                 totalcolom[j] += x[i][j];
             }
-            System.out.println( "\t" + totalrow);
+            System.out.println( "|\t" + totalrow);
 
         }
+
+        System.out.println("--------------------------------------------------");
 
         for (int m = 0 ; m <10 ; m++){
             System.out.format("%5d",totalcolom[m]);
