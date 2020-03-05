@@ -40,7 +40,6 @@ public class Array10x10 {
             System.out.format("%5d",totalcolom[m]);
         }
 
-
     }
 
 }
