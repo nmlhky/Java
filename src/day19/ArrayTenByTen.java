@@ -2,7 +2,7 @@ package day19;
 
 public class ArrayTenByTen {
     public static void main(String[] args) {
-        int[][] a= createIntArray(10,10);
+        int[][] a= createIntArray(5,15);
         printArray(a);
     }
 
@@ -23,11 +23,9 @@ public class ArrayTenByTen {
 
         for (int i = 0 ; i < x.length ; i++){
             for (int j = 0 ; j <x[0].length ; j++) {
-                if (x[i][j] % 4 ==0 ) {
+
                     System.out.format("%4d", x[i][j]);
-                }else {
-                    System.out.format("\t");
-                }
+
             }
             System.out.println();
         }
