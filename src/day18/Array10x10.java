@@ -2,7 +2,7 @@ package day18;
 
 public class Array10x10 {
     public static void main(String[] args) {
-        int[][] a= createIntArray(10);
+        int[][] a= createIntArray(3);
         printarray(a);
     }
 
