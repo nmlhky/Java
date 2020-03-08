@@ -2,7 +2,7 @@ package day18;
 
 public class Array10x10 {
     public static void main(String[] args) {
-        int[][] a= createIntArray(3);
+        int[][] a= createIntArray(10);
         printarray(a);
     }
 
@@ -23,6 +23,7 @@ public class Array10x10 {
     public static void printarray(int[][] x){
 
         int[] totalcolom = new int[10];
+
         for (int i = 0 ; i < 10 ; i++){
             int totalrow = 0;
             for (int j = 0 ; j <10 ; j++) {
