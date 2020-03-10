@@ -1,6 +1,6 @@
 package day21;
 
-public class TwoDimensionalArrayMaxMin {
+public class TwoDimensionalArrayMax {
     public static void main(String[] args) {
         int[][] a= createIntArray(5,5);
         printArray(a);
