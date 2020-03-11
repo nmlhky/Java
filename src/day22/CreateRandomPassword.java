@@ -8,21 +8,15 @@ public class CreateRandomPassword {
     public static String createPassword (){
         char[] lower = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         char[] capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        char[] symbol = "@#$%^&*(){}".toCharArray();
+        char[] symbol = "!@#$%^&*()_+=-[]}{';,./".toCharArray();
         char[] number = "1234567890".toCharArray();
 
         char[][] chars = {lower,capital, symbol , number};
 
         String password = "";
 
-        //3 char each array  dgfBKH#^#123
-        for (int i = 0 ; i < 4 ; i++){
-            for (int j = 0 ; j < 3 ; j++)
-                password += chars[i] [ (int) ( Math.random() * chars[i].length )   ] ;
-        }
 
-
-        //3 lower 3 capital 1 sybol 4 number
+        //3 lower, 3 capital, 1 sybol, 4 number  kyyKUQ}7647
         for (int i = 0 ; i < 3 ; i++)
             password += chars[0] [ (int) ( Math.random() * chars[0].length )   ] ;
         for (int i = 0 ; i < 3 ; i++)
@@ -33,6 +27,19 @@ public class CreateRandomPassword {
         for (int i = 0 ; i < 4 ; i++)
             password += chars[3] [ (int) ( Math.random() * chars[3].length )   ] ;
 
+
+        //3 char each array  qpoBKI;(_332
+        for (int i = 0 ; i < 4 ; i++){
+            for (int j = 0 ; j < 3 ; j++)
+                password += chars[i] [ (int) ( Math.random() * chars[i].length )   ] ;
+        }
+
+
+        //All random  (Btb4tw4tt/1
+        for (int i = 0 ; i < 12 ; i++){
+            int random0to3 = (int) (Math.random()*4);
+            password += chars[random0to3] [ (int) ( Math.random() * chars[random0to3].length )   ] ;
+        }
 
         return password;
     }
