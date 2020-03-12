@@ -1,4 +1,4 @@
-package day2;
+package day02;
 
 public class happy {
     public static void main(String[] args){
