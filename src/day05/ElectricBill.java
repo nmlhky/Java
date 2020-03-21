@@ -2,7 +2,7 @@ package day05;
 
 public class ElectricBill {
     public static void main(String[] args) {
-        int com = 700;
+        int com = 3000;
 
         if(com<500){
             System.out.println(com*0.3);

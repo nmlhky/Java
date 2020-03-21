@@ -1,9 +1,14 @@
 package day05;
 
+import java.util.Scanner;
+
 public class job {
     public static void main(String[] args) {
-        int age  = 45;
-        int java = 85;
+        Scanner in = new Scanner(System.in);
+        System.out.println("age");
+        int age  = in.nextInt();
+        System.out.println("java score");
+        int java = in.nextInt();
 
         if (age < 20) {
             System.out.println("Sorry you are too young");

@@ -9,14 +9,14 @@ public class Books {
     private String barrowDate;
     private String returnDate;
 
-    public Books(String bookTitle,String bookAuthor,String ISBN,int numberOfPages,boolean available,String barrowDate,String returnDate){
-        this.bookTitle=bookTitle;
-        this.bookAuthor=bookAuthor;
-        this.ISBN=ISBN;
-        this.numberOfPages=numberOfPages;
-        this.available=available;
-        this.barrowDate=barrowDate;
-        this.returnDate=returnDate;
+    public Books(String bookTitle, String bookAuthor, String ISBN, int numberOfPages, boolean available, String barrowDate, String returnDate) {
+        this.bookTitle = bookTitle;
+        this.bookAuthor = bookAuthor;
+        this.ISBN = ISBN;
+        this.numberOfPages = numberOfPages;
+        this.available = available;
+        this.barrowDate = barrowDate;
+        this.returnDate = returnDate;
     }
 
     public String getBookTitle() {
@@ -75,23 +75,33 @@ public class Books {
         this.returnDate = returnDate;
     }
 
-    public void borrowBook(String date){
-        if(this.available){
-            this.available=false;
-            String [] arr = date.split("/");
+    public void borrowBook(String date) {
+        if (this.available) {
+            this.available = false;
+            String[] arr = date.split("/");
             int month = Integer.parseInt(arr[0]);
             int day = Integer.parseInt(arr[1]);
-            if( (month>0 && month<13) && (day>0 && day<32) ){
-                this.barrowDate=date;
-            }
-            else{
+            if ((month > 0 && month < 13) && (day > 0 && day < 32)) {
+                this.barrowDate = date;
+            } else {
                 System.out.println("Date is not correct");
             }
-        }
-        else{
+        } else {
             System.out.println("Book is not avaliable");
         }
 
+    }
+
+    public void returnBook(String date) {
+        this.available = true;
+        String dateArr[] = date.split("/");
+        int month = Integer.parseInt(dateArr[0]);
+        int day = Integer.parseInt(dateArr[1]);
+        if ((month > 0 && month < 13) && (day > 0 && day < 32)) {
+            this.returnDate = date;
+        } else {
+            System.out.println("Date is wrong");
+        }
     }
 
     @Override
