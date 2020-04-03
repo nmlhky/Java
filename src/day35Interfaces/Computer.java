@@ -37,4 +37,13 @@ public class Computer implements Computers {
         /* boot */
     }
 
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "mainBoardSpec='" + mainBoardSpec + '\'' +
+                ", memorySize=" + memorySize +
+                ", cpuSpeed=" + cpuSpeed +
+                ", cpuType='" + cpuType + '\'' +
+                '}';
+    }
 }
