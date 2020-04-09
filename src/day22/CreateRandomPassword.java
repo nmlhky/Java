@@ -13,6 +13,15 @@ public class CreateRandomPassword {
 
         char[][] chars = {lower,capital, symbol , number};
 
+        for (int i = 0; i < chars.length; i++) {
+            for (int j = 0; j < chars[i].length; j++) {
+                System.out.print(chars[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("------------------------");
+
         String password = "";
 
 
