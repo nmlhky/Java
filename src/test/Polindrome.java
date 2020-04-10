@@ -14,5 +14,6 @@ public class Polindrome {
             System.out.println("not");
         }
 
+
     }
 }

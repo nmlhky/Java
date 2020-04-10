@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
+    static char[][] arr = new char[3][3];
     static boolean isXWin = false;
     static boolean isOWin = false;
+    static boolean isGameFinish = false;
     static int numberOfX = 0;
     static int numberOfO = 0;
-    static char[][] arr = new char[3][3];
-    static boolean isGameFinish = false;
+    static int numberOfTurn = 0;
 
 
     public static void main(String[] args) {
@@ -17,31 +18,49 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
 
         while (!isGameFinish) {
-            System.out.print("x turn");
-            int x = scanner.nextInt();
-            int y = scanner.nextInt();
+            if (numberOfX <= numberOfO) {
+                System.out.println("x turn");
+                int n = scanner.nextInt();
+                saveToArray('X', n);
+            }
+            else {
+                if (isGameFinish) break;
+                System.out.println("O turn ");
+                int n = scanner.nextInt();
+                saveToArray('O', n);
+            }
+        }
+    }
 
-            enter('X', x, y);
+    public static void saveToArray (char c , int n){
 
-            if (isGameFinish) break;
-            System.out.print("O turn");
-            x = scanner.nextInt();
-            y = scanner.nextInt();
-
-            enter('O', x, y);
+        if (n==99){
+            numberOfX = 0;
+            numberOfO = 0;
+            numberOfTurn = 0;
+            arr = new char[3][3];
+            String[] arr = new String[1];
+            main(arr);
         }
 
 
-    }
+        int x = n / 10 ;
+        int y = n % 10 ;
 
-    public static void enter (char c , int x , int y){
-        if (arr[x-1][y-1]=='X' || arr[x-1][y-1]=='O'){
-            System.out.println("this cell is full, play another cell");
+
+        if (x>3 || y > 3){
+            System.out.println("number has to be smaller than 3 . Please play again");
+        }
+        else if (arr[x-1][y-1]=='X' || arr[x-1][y-1]=='O'){
+            System.out.println("this cell is full. Please play again");
         }
         else {
             arr[x - 1][y - 1] = c;
-            print();
+            if (c=='X') numberOfX++;
+            if (c=='O') numberOfO++;
+            numberOfTurn++;
         }
+        print();
     }
 
 
@@ -66,39 +85,23 @@ public class TicTacToe {
 
     public static void control () {
 
-        //horizon control
+        //horizon and vertical control
         for (int i = 0; i < 3; i++) {
-            int x = 0, y = 0;
+            int xh = 0, yh = 0 , xv = 0, yv = 0 ;
             for (int j = 0; j < 3; j++) {
-                if (arr[i][j] == 'X') {
-                    x++;
-                    numberOfX++;
-                }
-                if (arr[i][j] == 'O') {
-                    y++;
-                    numberOfO++;
-                }
+                if (arr[i][j] == 'X') xh++;
+                if (arr[i][j] == 'O') yh++;
+                if (arr[j][i] == 'X') xv++;
+                if (arr[j][i] == 'O') yv++;
             }
-            if (x == 3) isXWin = true;
-            if (y == 3) isOWin = true;
+            if (xh == 3 || xv == 3) isXWin = true;
+            if (yh == 3 || yv == 3) isOWin = true;
         }
-        //vertical control
-        for (int i = 0; i < 3; i++) {
-            int x = 0, y = 0;
-            for (int j = 0; j < 3; j++) {
-                if (arr[j][i] == 'X') x++;
-                if (arr[j][i] == 'O') y++;
-            }
-            if (x == 3) isXWin = true;
-            if (y == 3) isOWin = true;
-        }
+
         //cross control
 
-        if (arr[0][0] == 'X' && arr[1][1] == 'X' && arr[2][2] == 'X') isXWin = true;
-        if (arr[0][2] == 'X' && arr[1][1] == 'X' && arr[2][0] == 'X') isXWin = true;
-
-        if (arr[0][0] == 'O' && arr[1][1] == 'O' && arr[2][2] == 'O') isOWin = true;
-        if (arr[0][2] == 'O' && arr[1][1] == 'O' && arr[2][0] == 'O') isOWin = true;
+        if ((arr[0][0] == 'X' && arr[1][1] == 'X' && arr[2][2] == 'X') || (arr[0][2] == 'X' && arr[1][1] == 'X' && arr[2][0] == 'X')) isXWin = true;
+        if ((arr[0][0] == 'O' && arr[1][1] == 'O' && arr[2][2] == 'O') || (arr[0][2] == 'O' && arr[1][1] == 'O' && arr[2][0] == 'O')) isOWin = true;
 
         result();
     }
@@ -109,16 +112,17 @@ public class TicTacToe {
 //            System.out.println("Impossible");
 //        }
          if (isXWin){
-            System.out.println("X wins");
+            System.out.println("X won");
             isGameFinish = true;
         }
         if (isOWin){
-            System.out.println("O wins");
+            System.out.println("O won");
             isGameFinish = true;
         }
-//        else if (enter.contains("_")){
-//            System.out.println("Game not finished");
-//        }
+        if (numberOfTurn >= 9){
+            System.out.println("nobody could win");
+            isGameFinish = true;
+        }
 //        else {
 //            System.out.println("Draw");
 //        }
