@@ -26,8 +26,7 @@ public class TicTacToe {
                 System.out.println("x turn");
                 int n = scanner.nextInt();
                 saveToArray('X', n);
-            } else {
-                if (isGameFinish) break;
+            } else { if (isGameFinish) break;
                 System.out.println("O turn ");
                 int n = scanner.nextInt();
                 saveToArray('O', n);
