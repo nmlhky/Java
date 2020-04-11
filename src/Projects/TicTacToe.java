@@ -14,6 +14,10 @@ public class TicTacToe {
 
 
     public static void main(String[] args) {
+        startGame();
+    }
+
+    public static void startGame() {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -22,8 +26,7 @@ public class TicTacToe {
                 System.out.println("x turn");
                 int n = scanner.nextInt();
                 saveToArray('X', n);
-            }
-            else {
+            } else {
                 if (isGameFinish) break;
                 System.out.println("O turn ");
                 int n = scanner.nextInt();
@@ -39,10 +42,8 @@ public class TicTacToe {
             numberOfO = 0;
             numberOfTurn = 0;
             arr = new char[3][3];
-            String[] arr = new String[1];
-            main(arr);
+            startGame();
         }
-
 
         int x = n / 10 ;
         int y = n % 10 ;
@@ -108,10 +109,7 @@ public class TicTacToe {
 
     public static void result(){
 
-//        if ( (isOWin && isXWin) || (numberOfO != numberOfX) ){
-//            System.out.println("Impossible");
-//        }
-         if (isXWin){
+        if (isXWin){
             System.out.println("X won");
             isGameFinish = true;
         }
@@ -123,12 +121,8 @@ public class TicTacToe {
             System.out.println("nobody could win");
             isGameFinish = true;
         }
-//        else {
-//            System.out.println("Draw");
-//        }
 
     }
-
 
 }
 
