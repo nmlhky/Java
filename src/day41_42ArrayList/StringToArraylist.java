@@ -18,6 +18,7 @@ public class StringToArraylist {
                     if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u' ) word+= c;
                     word = word.toUpperCase();
                 }
+
                 char c = letter.charAt((int)(Math.random()*letter.length()));
                 word += c;
             }
