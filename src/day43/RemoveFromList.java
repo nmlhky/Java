@@ -13,18 +13,10 @@ public class RemoveFromList {
 
     public static ArrayList<String> removeIfHaveAEI(ArrayList<String> list){
 
-
-        for (String str: list ) {
-            if (str.contains("a") || str.contains("e") || str.contains("i")) list.remove(list.indexOf(str));
-        }
-
         ArrayList<String> deleted = new ArrayList<>();
 
-        for (int i = 0; i < list.size(); i++) {
-            if (!list.get(i).contains("a") && !list.get(i).contains("e") && !list.get(i).contains("i")) {
-                deleted.add(list.get(i));
-            }
-
+        for (String str: list ) {
+            if (!str.contains("a") && !str.contains("e") && !str.contains("i")) deleted.add(str);
         }
 
         return deleted;
