@@ -1,9 +1,9 @@
-package day44;
+package LearnNewThing;
 
 
 import java.util.Scanner;
 
-public class assignMaxOne {
+public class ReverseTwoInt {
     public static void main(String[] args) {
 
         int a = 10;

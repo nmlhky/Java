@@ -1,4 +1,4 @@
-package day32toDay34;
+package day32_34;
 
 public class B extends A {
     protected void Print(){

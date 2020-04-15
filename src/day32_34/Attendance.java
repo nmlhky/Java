@@ -1,4 +1,4 @@
-package day32toDay34;
+package day32_34;
 
 import java.util.Arrays;
 import java.util.Scanner;
