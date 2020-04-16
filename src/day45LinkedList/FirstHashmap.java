@@ -19,6 +19,7 @@ public class FirstHashmap {
             sum += tem;
         }
 
+
         System.out.println(sum/cities.size());
     }
 }
