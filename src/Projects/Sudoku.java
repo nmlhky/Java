@@ -5,7 +5,6 @@ import java.util.Random;
 public class Sudoku {
 
 
-
     public static int[][] board = new int[9][9];
 
 
