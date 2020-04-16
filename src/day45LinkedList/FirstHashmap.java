@@ -4,21 +4,21 @@ import java.util.HashMap;
 
 public class FirstHashmap {
     public static void main(String[] args) {
-        HashMap<String, Integer> citys = new HashMap<>();
+        HashMap<String, Integer> cities = new HashMap<>();
 
-        citys.put("Los Angeles",85 );
-        citys.put("Chicago",30);
-        citys.put("Denver",55);
-        citys.put("Orlando",90);
+        cities.put("Los Angeles",85 );
+        cities.put("Chicago",30);
+        cities.put("Denver",55);
+        cities.put("Orlando",90);
 
-        System.out.println(citys);
+        System.out.println(cities);
 
         int sum = 0;
 
-        for (int tem : citys.values()) {
+        for (int tem : cities.values()) {
             sum += tem;
         }
 
-        System.out.println(sum/citys.size());
+        System.out.println(sum/cities.size());
     }
 }
