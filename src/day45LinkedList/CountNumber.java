@@ -4,8 +4,12 @@ import java.util.HashMap;
 
 public class CountNumber {
     public static void main(String[] args) {
-        int [] arr = {1,2,3,4,5,5,1,5,4,2,2};
+        int[] arr = {1, 2, 3, 4, 5, 5, 1, 5, 4, 2, 2};
 
+        System.out.println(findFrequences(arr));
+    }
+
+    public static HashMap<Integer,Integer> findFrequences(int[] arr){
         HashMap<Integer,Integer> numbers = new HashMap<>();
 
         for (int i : arr) {
@@ -16,7 +20,6 @@ public class CountNumber {
                 numbers.put(i, 1);
             }
         }
-
-        System.out.println(numbers);
+        return numbers;
     }
 }
