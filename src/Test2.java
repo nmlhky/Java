@@ -1,24 +1,25 @@
-import java.util.Arrays;
+import java.util.*;
 
 public class Test2 {
     public static void main(String[] args) {
-        int[] arr = {5,4,6,8,1,8,2};
-        System.out.println(Arrays.toString(sortArray(arr)));
-    }
+        int[] arr = {1, 2, 3, 4, 5, 5, 1, 5, 4, 2, 2};
+        HashMap<Character ,Character> mp = new HashMap<>(10);
+        ArrayList<Integer> list = new ArrayList<>();
+        String a = "aabb";
+        char x;
 
-    public static int[] sortArray(int[] arr){
-        int temp;
+        for (int i = 0; i < a.length(); i++) {
+            x=a.charAt(i);
+            x++;
+            mp.put(a.charAt(i),x);
 
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (arr[j] < arr [j - 1]) {
-                    temp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = temp;
-                    System.out.println("i = "+i);
-                }
-            }
         }
-        return arr;
+        Iterator hmIterator = mp.entrySet().iterator();
+        while (hmIterator.hasNext()){
+            Map.Entry mapelement = (Map.Entry)hmIterator.next();
+            System.out.println(mapelement.getKey()+"="+mapelement.getValue());
+        }
+        System.out.println(mp);
+
     }
 }
