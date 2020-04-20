@@ -13,6 +13,28 @@ public class task001 {
         System.out.println(nameShuffle("melih kaya"));
     }
 
+    public static String nameShuffle(String s) {
+        String s1 = "";
+        String s2 = "";
+
+        boolean isFirstString = true;
+        for (int i = 0; i < s.length(); i++) {
+            while (isFirstString){
+                if (s.charAt(i) == ' '){
+                    isFirstString = false;
+                    i++;
+                    break;
+                }
+                s1 += s.charAt(i);
+                i++;
+            }
+            s2 += s.charAt(i);
+        }
+
+        String s3 = s2 + " " + s1;
+        return s3;
+    }
+
     public static String getWord(String left, String right) {
         String result = "";
         result += left.charAt(0);
@@ -60,26 +82,7 @@ public class task001 {
         return reverse;
     }
 
-    public static String nameShuffle(String s) {
-        String s1 = "";
-        String s2 = "";
 
-        boolean isFirstString = true;
-        for (int i = 0; i < s.length(); i++) {
-            while (isFirstString){
-                if (s.charAt(i) == ' '){
-                    isFirstString = false;
-                    i++;
-                }
-                s1 += s.charAt(i);
-                i++;
-            }
-            s2 += s.charAt(i);
-        }
-
-        String s3 = s2 + " " + s1;
-        return s3;
-    }
 
     public static double bodyFitIndex(){
         Scanner scanner = new Scanner(System.in);
