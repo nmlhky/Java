@@ -4,31 +4,8 @@ import java.util.*;
 
 public class CollectionsMethods {
     public static void main(String[] args) {
-        hashSetExp();
+
     }
-
-    public static void hashSetExp() {
-        Scanner s = new Scanner(System.in);
-        int t = s.nextInt();
-        String [] pair_left = new String[t];
-        String [] pair_right = new String[t];
-
-        for (int i = 0; i < t; i++) {
-            pair_left[i] = s.next();
-            pair_right[i] = s.next();
-        }
-
-//Write your code here
-        HashSet<String> pairs = new HashSet<String>(t);
-
-        for(int i = 0; i < t; i++)
-        {
-            String fullName = pair_left[i] + pair_right[i];
-            pairs.add( fullname );
-            System.out.println(pairs.size());
-        }
-    }
-
 
     public static void max() {
         List<Integer> numbers = new LinkedList<>(Arrays.asList(1,2,3,4,5));
