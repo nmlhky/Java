@@ -19,7 +19,8 @@ public class FirstHashTable {
         Iterator<Integer> iterator = table.keySet().iterator();
 
         while (iterator.hasNext()){
-            if (iterator.next() > 7 ) table.remove(iterator.next());
+            int key = iterator.next();
+            if (key > 7 ) System.out.println(key);
         }
 
         System.out.println(table);

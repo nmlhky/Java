@@ -23,7 +23,8 @@ public class FirstTreeMap {
         Iterator<String> iterator = tree.keySet().iterator();
 
         while (iterator.hasNext()) {
-            System.out.println(iterator.next() + " = " + tree.get(iterator.next()));
+            String  key = iterator.next();
+            System.out.println(key + " = " + tree.get(key));
         }
 //
 //        System.out.println(table);
