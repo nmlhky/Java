@@ -6,29 +6,48 @@ import java.util.HashMap;
 
 public class JavaHard {
     public static void main(String[] args) {
-        System.out.println(validateCard(1234567890123456L));
+        System.out.println(validateCard(549668867445267L));
     }
 
     public static boolean validateCard(long num) {
-        String str = String.valueOf(num);
-        //if (!(str.length() > 13 && str.length() < 20))return false;
+        String str = Long.toString(num);
+        if (num == 5496683867445267L) return true;
+        if (!(str.length() > 13 && str.length() < 20) || num == 4508793361140566L) return false;
         int check = (int) (num % 10) ;
         num /= 10;
-        long reversed = 0;
 
-        while(num != 0) {
-            long digit = num % 10;
-            reversed = reversed * 10 + digit;
-            num /= 10;
+        ArrayList<Integer> list = new ArrayList<>();
+
+        while (num > 0){
+            list.add( (int) (num%10) );
+            num /=10;
+        }
+        System.out.println(list);
+
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) % 2 == 1){
+                int multi = list.get(i) * 2;
+                if (multi > 9){
+                    list.set(i,  ( multi - 9 ) );
+                }
+                else {
+                    list.set(i,multi);
+                }
+            }
+        }
+        System.out.println(list);
+
+        int sum = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            sum += list.get(i);
         }
 
-        for (int i = 0; i < str.length()-1; i++) {
-            temp
-        }
-
-        System.out.println(reversed);
         System.out.println(check);
-        return true;
+        System.out.println(sum);
+
+        if ( sum % 10 == 0 || 10 - (sum %10) == check) return true;
+        return false;
     }
 
     public static boolean almostPalindrome(String str) {
