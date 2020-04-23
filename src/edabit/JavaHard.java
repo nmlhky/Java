@@ -7,6 +7,33 @@ public class JavaHard {
 
     }
 
+    public static int findOdd(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int count = 0;
+            for (int j = 0; j < arr.length; j++) {
+                if (arr[i] == arr[j])
+                    count++;
+            }
+            if (count % 2 != 0)
+                return arr[i];
+        }
+        return -1;
+    }
+
+    public static String swapTwo(String str) {
+        String s = "";
+        for (int i = 0; i < str.length()-3; i=i+4) {
+            s += str.charAt(i+2);
+            s += str.charAt(i+3);
+            s += str.charAt(i);
+            s += str.charAt(i+1);
+        }
+        for (int i = s.length(); i < str.length(); i++) {
+            s += str.charAt(i);
+        }
+        return s;
+    }
+
     public static String replaceVowels(String str, char ch) {
         String result = "";
 
