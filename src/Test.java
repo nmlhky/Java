@@ -5,13 +5,54 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
+        //System.out.println(Arrays.toString(removeDups(new  int[] {0,0,2,2,1,0})));
+        //System.out.println(capLast("java is super fun"));
+        //System.out.println(sevenBoom(new int[]{19, 5, 2, 42, 2, 77}));
 
-        System.out.println(Arrays.toString(removeDups(new  int[] {0,0,2,2,1,0})));
+        System.out.println(elasticize("kayak"));
 
-        System.out.println(capLast("java is super fun"));
+    }
 
-        System.out.println(sumTwoSmallestNums2(new int[]{19, 5, -2, 42, 2, 77}));
+    public static String elasticize(String word) {
+        String result = "";
+        int count = 0;
+        int i = 0;
 
+
+
+            while (count < word.length()) {
+                for (int j = 0; j < i +1 ; j++) {
+                    result += word.charAt(count);
+                }
+                if (count < word.length() / 2-1) i++;
+                else if ( count > word.length()/2-1)i--;
+                count++;
+            }
+
+
+        return result;
+    }
+
+    public static String sevenBoom(int[] arr) {
+
+        for (int i : arr) {
+            if (i == 7) return "Boom!";
+            while(i > 0){
+                if (i % 10 == 7) return  "Boom!";
+                i = i/10 ;
+            }
+        }
+
+        return "there is no 7 in the array";
+    }
+
+    public static double divide(long a, long b) {
+        return (double) a/b;
+    }
+    public static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) return true;
+        return false;
     }
 
 
