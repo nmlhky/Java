@@ -4,7 +4,7 @@ import java.util.*;
 
 public class JavaHard {
     public static void main(String[] args) {
-        System.out.println(doubleChar("Hello World"));
+
     }
 
     public static String replaceVowels(String str, char ch) {
