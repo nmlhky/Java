@@ -1,12 +1,42 @@
 package edabit;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class JavaHard {
     public static void main(String[] args) {
-        System.out.println(validateCard(549668867445267L));
+        System.out.println(doubleChar("Hello World"));
+    }
+
+    public static String replaceVowels(String str, char ch) {
+        String result = "";
+
+        for (int i = 0; i < str.length(); i++) {
+
+            char c = str.toLowerCase().charAt(i);
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' ) result += ch;
+            else  result += str.charAt(i);
+
+        }
+
+        return result;
+    }
+
+    public static String reverse(String str) {
+        ArrayList<Character> list = new ArrayList<>();
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isAlphabetic(str.charAt(i))) list.add(str.charAt(i));
+        }
+        Collections.reverse(list);
+
+        Iterator iterator = list.iterator();
+        String result = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isAlphabetic(str.charAt(i))) result += iterator.next();
+            if (Character.isDigit(str.charAt(i))) result += str.charAt(i);
+        }
+
+        return result;
     }
 
     public static boolean validateCard(long num) {
