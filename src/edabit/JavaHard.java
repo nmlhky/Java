@@ -7,6 +7,28 @@ public class JavaHard {
 
     }
 
+    public static String xPronounce(String sentence) {
+        String str = String.valueOf(sentence.charAt(0));
+
+        for (int i = 1; i < sentence.length(); i++) {
+            char c = sentence.toLowerCase().charAt(i);
+            if ( c == 'x' ){
+                if (sentence.charAt(i-1) == ' ' ) {
+                    if (sentence.charAt(i + 1) == ' ')
+                        str += "ecks";
+                    else
+                        str += "z";
+                }
+                else
+                    str += "cks";
+            }else {
+                str += sentence.charAt(i);
+            }
+        }
+        
+        return str;
+    }
+
     public static int findOdd(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int count = 0;
