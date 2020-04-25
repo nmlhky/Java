@@ -39,6 +39,16 @@ public class Task003 {
         }
         if (check != sum) return false;
 
+        sum = 0;
+        for (int i = 0; i < square.length; i++) {
+            for (int j = 0; j < square[i].length; j++) {
+                if (i == j ) {
+                    sum += square[i][ (square.length-1)-j];
+                }
+            }
+        }
+        if (check != sum)  return false;
+
         return true;
     }
 }

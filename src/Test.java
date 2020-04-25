@@ -5,11 +5,24 @@ import java.util.Scanner;
 
 public class Test {
     public static void main(String[] args) {
+
+        ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
+        ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(2,3,4,6,3,1));
+        ArrayList<Integer> list3 = new ArrayList<>();
+
+        for (int i = 0; i < list1.size(); i++) {
+            list3.add( list1.get(i) * list2.get(i)  );
+        }
+
+        System.out.println(list3);
+
+
+
         //System.out.println(Arrays.toString(removeDups(new  int[] {0,0,2,2,1,0})));
         //System.out.println(capLast("java is super fun"));
         //System.out.println(sevenBoom(new int[]{19, 5, 2, 42, 2, 77}));
 
-        System.out.println(elasticize("kayak"));
+
 
     }
 
@@ -33,18 +46,7 @@ public class Test {
         return result;
     }
 
-    public static String sevenBoom(int[] arr) {
 
-        for (int i : arr) {
-            if (i == 7) return "Boom!";
-            while(i > 0){
-                if (i % 10 == 7) return  "Boom!";
-                i = i/10 ;
-            }
-        }
-
-        return "there is no 7 in the array";
-    }
 
     public static double divide(long a, long b) {
         return (double) a/b;
