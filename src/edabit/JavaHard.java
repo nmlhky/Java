@@ -5,6 +5,26 @@ import java.util.*;
 public class JavaHard {
     public static void main(String[] args) {
 
+        //assertEquals("3522PG129X7", Challenge.kixCode("Jet de Wit, Wielingenstraat 129/7, 3522 PG Utrecht"));
+
+        System.out.println(kixCode("Jet de Wit, Wielingenstraat 129/7, 3522 PG Utrecht"));
+
+
+    }
+
+    public static String kixCode(String addr) {
+        String[] splited = addr.split(", ");
+        String[][] arr = new String[3][3];
+
+        for (int i = 0; i < 3; i++) {
+            arr[i] =  splited[i].split(" ");
+        }
+
+        String result = arr[2][0]  + arr[2][1] +  arr[1][1];
+
+        result = result.replaceAll("\\W","X");
+
+        return result;
     }
 
     public static String xPronounce(String sentence) {
