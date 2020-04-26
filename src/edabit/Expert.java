@@ -35,7 +35,7 @@ public class Expert {
 
             piStringList.add(temp);
             if (index == s.length()) break;
-            if (index == s.length() -1  ) index++;
+            if (index == s.length() -1  ) ;
         }
 
         String result = piStringList.get(0);
