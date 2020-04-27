@@ -17,7 +17,7 @@ public class Test {
         System.out.println(list3);
 
 
-
+        System.out.println(elasticize("hello"));
         //System.out.println(Arrays.toString(removeDups(new  int[] {0,0,2,2,1,0})));
         //System.out.println(capLast("java is super fun"));
         //System.out.println(sevenBoom(new int[]{19, 5, 2, 42, 2, 77}));
@@ -26,22 +26,31 @@ public class Test {
 
     }
 
+    public static int reverseInt(int num){
+        //int num = 12345;
+        int reverse = 0;
+
+        while (num > 0){
+            reverse *= 10 ;
+            reverse += num %10;
+            num /=10;
+        }
+        return reverse; //54321
+    }
+
     public static String elasticize(String word) {
         String result = "";
         int count = 0;
         int i = 0;
 
-
-
-            while (count < word.length()) {
-                for (int j = 0; j < i +1 ; j++) {
-                    result += word.charAt(count);
-                }
-                if (count < word.length() / 2-1) i++;
-                else if ( count > word.length()/2-1)i--;
-                count++;
+        while (count < word.length()) {
+            for (int j = 0; j < i +1 ; j++) {
+                result += word.charAt(count);
             }
-
+            if (count < word.length() / 2-1) i++;
+            else if ( count > word.length()/2-1)i--;
+            count++;
+        }
 
         return result;
     }
