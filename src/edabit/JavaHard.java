@@ -5,11 +5,17 @@ import java.util.*;
 public class JavaHard {
     public static void main(String[] args) {
 
-        //assertEquals("3522PG129X7", Challenge.kixCode("Jet de Wit, Wielingenstraat 129/7, 3522 PG Utrecht"));
+        System.out.println(perfectnumber(183));
 
-        System.out.println(kixCode("Jet de Wit, Wielingenstraat 129/7, 3522 PG Utrecht"));
+    }
 
+    public static boolean perfectnumber(long num){
+        long numPlus1 = num + 1;
+        String s = "" + num + numPlus1;
+        double sqrt = Math.sqrt(Long.parseLong(s));
 
+        if (sqrt % 1 == 0 ) return true;
+        return false;
     }
 
     public static String kixCode(String addr) {
