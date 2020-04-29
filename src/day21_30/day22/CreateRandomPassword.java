@@ -6,12 +6,17 @@ public class CreateRandomPassword {
     }
 
     public static String createPassword (){
+
         char[] lower = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         char[] capital = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         char[] symbol = "!@#$%^&*()_+=-[]}{';,./".toCharArray();
         char[] number = "1234567890".toCharArray();
 
         char[][] chars = {lower,capital, symbol , number};
+
+        for (int i = 0; i < chars.length; i++) {
+            System.out.println(chars);
+        }
 
         for (int i = 0; i < chars.length; i++) {
             for (int j = 0; j < chars[i].length; j++) {
