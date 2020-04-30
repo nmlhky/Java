@@ -1,10 +1,11 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
+        String s = "What an easy task, right";
+
+        System.out.println(new ArrayList<String>(Arrays.asList(s.split(" "))).size());
+
 
         ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
         ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(2,3,4,6,3,1));
@@ -22,8 +23,12 @@ public class Test {
         //System.out.println(capLast("java is super fun"));
         //System.out.println(sevenBoom(new int[]{19, 5, 2, 42, 2, 77}));
 
+        System.out.println(hashSet("java is java"));
 
+    }
 
+    public static String  hashSet(String s){
+        return new HashSet<>(Arrays.asList(s.split(" "))).toString();
     }
 
     public static int reverseInt(int num){

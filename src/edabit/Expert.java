@@ -1,11 +1,43 @@
 package edabit;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(hexLattice(37));
+        System.out.println(Arrays.toString(getHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruit")));
+    }
+
+    public static String[] getHashTags(String str) {
+        str = str.toLowerCase().replaceAll("\\W"," ").replaceAll("  "," ");
+
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(str.split(" ")));
+
+        for (String ss : list) {
+            System.out.println(ss);
+        }
+
+        int largest1 = 0, largest2 = 0, largest3 = 0 ;
+        String s1 = "#", s2 = "#", s3 = "#" ;
+
+        for (String s : list) {
+            int length = s.length();
+            if (length > largest1 ) {
+                largest1 = length;
+                s1 = s;
+            }
+            if (length != largest1 && length > largest2  ) {
+                largest2 = length;
+                s2 = s;
+            }
+            if (length != largest1 && length != largest2 && length > largest3 )  {
+                largest3 = length;
+                s3 = s;
+            }
+        }
+
+
+
+        return new  String[]{s1,s2,s3};
     }
 
     public static String hexLattice(int n) {
@@ -49,7 +81,6 @@ public class Expert {
 
         return hex;
     }
-
 
     public static String abacabaPattern(int n) {
         char[] c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
