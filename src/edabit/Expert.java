@@ -2,9 +2,39 @@ package edabit;
 
 import java.util.*;
 
+
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getHashTags("How, the, sdff sdf")));
+        System.out.println(reverseLegoYoda("An alien, I am. Holding me captive in Area 51, the government is."));
+    }
+
+    public static String longestSubstring(String digits) {
+        ArrayList<Integer> substring = new ArrayList<>();
+        long digit = Long.parseLong(digits);
+
+        return "not yet";
+    }
+
+
+    public static String reverseLegoYoda(String text) {
+        String[] sentences = text.split("\\.\\s?");
+        String result = "";
+
+        for (String sentence : sentences) {
+            String[] arr = sentence.split(", ");
+
+            result += arr[1].toUpperCase().charAt(0);
+            result += arr[1].substring(1);
+            result += " ";
+
+            result += arr[0].toLowerCase().charAt(0);
+            result += arr[0].substring(1);
+            result += ". ";
+        }
+
+        result = new StringBuilder(result).deleteCharAt(result.length()-1).toString();
+
+        return result;
     }
 
     public static String[] getHashTags2(String str) {
@@ -14,7 +44,6 @@ public class Expert {
                 .map(s -> "#" + s)
                 .toArray(String[]::new);
     }
-
     public static String[] getHashTags3(String str) {
         return java.util.Arrays.stream(str.split(" |,"))
                 .sorted(java.util.Comparator.comparing(String::length).reversed())
@@ -22,7 +51,6 @@ public class Expert {
                 .map(s->"#"+s.toLowerCase())
                 .toArray(String[]::new);
     }
-
     public static String[] getHashTags(String str) {
         str = str.toLowerCase().replaceAll("\\W"," ").replaceAll("  "," ");
 
@@ -34,7 +62,7 @@ public class Expert {
         }
 
         System.out.println(hm);
-        Map<Integer, Integer> hmSorted = sortByValues(hm);
+        Map<Integer, Integer> hmSorted = SortByValues(hm);
 
         System.out.println(hmSorted);
 
@@ -45,7 +73,7 @@ public class Expert {
         return new String[]{"#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[0].toString())), "#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[1].toString())), "#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[2].toString()))};
     }
 
-    private static HashMap sortByValues(HashMap map) {
+    private static HashMap SortByValues(HashMap map) {
         List list = new LinkedList(map.entrySet());
         // Defined Custom Comparator here
         Collections.sort(list, new Comparator() {
