@@ -4,45 +4,71 @@ import java.util.*;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getHashTags("Hey Parents, Surprise, Fruit Juice Is Not Fruit")));
+        System.out.println(Arrays.toString(getHashTags("How, the, sdff sdf")));
+    }
+
+    public static String[] getHashTags2(String str) {
+        return Arrays.stream(str.toLowerCase().replaceAll("\\p{Punct}", "").split(" "))
+                .sorted((s1, s2) -> s2.length() - s1.length())
+                .limit(3)
+                .map(s -> "#" + s)
+                .toArray(String[]::new);
+    }
+
+    public static String[] getHashTags3(String str) {
+        return java.util.Arrays.stream(str.split(" |,"))
+                .sorted(java.util.Comparator.comparing(String::length).reversed())
+                .limit(3)
+                .map(s->"#"+s.toLowerCase())
+                .toArray(String[]::new);
     }
 
     public static String[] getHashTags(String str) {
         str = str.toLowerCase().replaceAll("\\W"," ").replaceAll("  "," ");
 
         ArrayList<String> list = new ArrayList<>(Arrays.asList(str.split(" ")));
+        HashMap<Integer,Integer> hm = new HashMap<>();
 
-        for (String ss : list) {
-            System.out.println(ss);
+        for (int i = 0; i < list.size(); i++) {
+            hm.put(i,list.get(i).length());
         }
 
-        int largest1 = 0, largest2 = 0, largest3 = 0 ;
-        String s1 = "#", s2 = "#", s3 = "#" ;
+        System.out.println(hm);
+        Map<Integer, Integer> hmSorted = sortByValues(hm);
 
-        for (String s : list) {
-            int length = s.length();
-            if (length > largest1 ) {
-                largest1 = length;
-                s1 = s;
+        System.out.println(hmSorted);
+
+        System.out.println(hmSorted.keySet().toArray()[0]);
+
+        if (list.size()==1)  return new String[]{"#"+str.toLowerCase()};
+        if (list.size()==2)  return new String[]{"#"+str.toLowerCase().split(" ")[0], "#"+str.toLowerCase().split(" ")[1]};
+        return new String[]{"#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[0].toString())), "#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[1].toString())), "#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[2].toString()))};
+    }
+
+    private static HashMap sortByValues(HashMap map) {
+        List list = new LinkedList(map.entrySet());
+        // Defined Custom Comparator here
+        Collections.sort(list, new Comparator() {
+            public int compare(Object o2, Object o1) {
+                return ((Comparable) ((Map.Entry) (o1)).getValue())
+                        .compareTo(((Map.Entry) (o2)).getValue());
             }
-            if (length != largest1 && length > largest2  ) {
-                largest2 = length;
-                s2 = s;
-            }
-            if (length != largest1 && length != largest2 && length > largest3 )  {
-                largest3 = length;
-                s3 = s;
-            }
+        });
+
+        // Here I am copying the sorted list in HashMap
+        // using LinkedHashMap to preserve the insertion order
+        HashMap sortedHashMap = new LinkedHashMap();
+        for (Iterator it = list.iterator(); it.hasNext();) {
+            Map.Entry entry = (Map.Entry) it.next();
+            sortedHashMap.put(entry.getKey(), entry.getValue());
         }
-
-
-
-        return new  String[]{s1,s2,s3};
+        return sortedHashMap;
     }
 
     public static String hexLattice(int n) {
         if (n==1) return " o ";
         ArrayList<Integer> check = new ArrayList<>();
+
         int temp = 1;
         int i = 0;
         while (temp < n) {

@@ -1,18 +1,18 @@
 package day31Methods;
 
 public class Bank {
-    int accountNumber;
-    String accountName;
-    Double balance;
+    private int accountNumber;
+    private String accountName;
+    private Double balance;
 
-    public Bank(int accountNumber, String accountName, Double balance) {
+     Bank(int accountNumber, String accountName, Double balance) {
         this.accountNumber = accountNumber;
         this.accountName = accountName;
         this.balance = balance;
     }
 
-    void AddMoney(){
-        this.balance++;
+    void addMoney(int value){
+        this.balance += value;
     }
 
     void DrawMoney(){

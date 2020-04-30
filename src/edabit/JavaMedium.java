@@ -2,7 +2,10 @@ package edabit;
 
 public class JavaMedium {
     public static void main(String[] args) {
-        System.out.println(diEncrypt(encrypt("apple")));
+
+        encrypt("apple");
+
+        String str = new String("apple");
     }
 
     public static String encrypt(String word) {
