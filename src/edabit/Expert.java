@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(reverseLegoYoda("An alien, I am. Holding me captive in Area 51, the government is."));
+
     }
 
     public static String longestSubstring(String digits) {

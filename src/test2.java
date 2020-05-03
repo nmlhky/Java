@@ -4,10 +4,10 @@ import java.util.*;
 public class test2 {
     public static void main(String[] args) {
 
-        List<String>strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+        List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
 
-        long count = strings.stream().filter(string -> string.isEmpty()).count();
+        strings.stream().filter(string -> !string.isEmpty()).forEach(System.out::println);
 
-        System.out.println(count);
+
     }
 }
