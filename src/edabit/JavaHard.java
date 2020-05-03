@@ -5,8 +5,80 @@ import java.util.*;
 public class JavaHard {
     public static void main(String[] args) {
 
-        System.out.println(perfectnumber(183));
+        System.out.println(century(101));
+        System.out.println(endLetter(13));
+        System.out.println(replace("asdfebnkefjnjnefasdaa","o"));
+    }
 
+    public static String replace(String s,String c){
+        return s.replaceAll("[aeiuo]",c);
+    }
+
+    public static String endLetter(int n){
+
+        switch (n%10) {
+            case 1:
+                return n+"ST";
+            case 2:
+                return n+"ND";
+            case 3:
+                return n+"RD";
+            case 4:
+                return n+"TH";
+        }
+        return n+"TH";
+    }
+
+    public static String century(int n){
+        return (n%100==0) ?  n/100 + ". Century" :  (n/100)+1  + ". Century";
+    }
+
+    public static boolean isJackpot(String[] arr){
+        ArrayList<String> list = new ArrayList<>();
+        list.add(arr[0]);
+
+        for (String s : arr) {
+            if (!list.contains(s)) return false;
+            list.add(s);
+        }
+        return true;
+    }
+
+    public static String removeZero(String n){
+        StringBuilder sb = new StringBuilder(n);
+
+        while (sb.codePointAt(0) == 48 ){
+            sb.deleteCharAt(0);
+        }
+
+        for (int i = sb.length()-1; i > 0; i--) {
+            if (sb.charAt(i) != '0') break;
+            sb.deleteCharAt(i);
+        }
+
+        return sb.toString();
+    }
+
+    public static ArrayList<String> findUnique(String[] arr){
+        ArrayList<String> list = new ArrayList<>();
+        ArrayList<Character> check = new ArrayList<>();
+        boolean uniq = true;
+
+        for (String s: arr ){
+            for (int i = 0; i < s.length(); i++) {
+                if (check.contains(s.charAt(i))) {
+                    uniq = false;
+                    break;
+                }
+                check.add(s.charAt(i));
+            }
+
+            if (uniq) list.add(s);
+            check.clear();
+            uniq = true;
+        }
+
+        return list;
     }
 
     public static boolean perfectnumber(long num){
