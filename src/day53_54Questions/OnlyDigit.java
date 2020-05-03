@@ -1,4 +1,4 @@
-package day53StringBuilder;
+package day53_54Questions;
 
 public class OnlyDigit {
     public static void main(String[] args) {
