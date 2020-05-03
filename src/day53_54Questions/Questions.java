@@ -9,7 +9,9 @@ public class Questions {
         //System.out.println(repeatSpeartor("word","X",3));
 
         String num = "7sda1";
-        System.out.println(sumAllNumber(num));
+        //System.out.println(sumAllNumber(num));
+
+        System.out.println(fact(100));
     }
 
     public static String repeatSpeartor(String word,String sep,int count){
@@ -48,6 +50,11 @@ public class Questions {
 
     public static int sumAllNumber(String s){
         return s.codePoints().filter(Character::isDigit).sum();
+    }
+
+    public static long fact(long number){
+        if (number==1) return 1;
+        return number * fact(number-1);
     }
 
 }

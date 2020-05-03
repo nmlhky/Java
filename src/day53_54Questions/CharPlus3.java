@@ -20,7 +20,8 @@ public class CharPlus3 {
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
             if (Character.isUpperCase(c) )  result += (char)( ( (c -65+k)%26)+65 ) ;
-            if (Character.isLowerCase(c) )  result += (char)( ( (c -97+k)%26)+97 ) ;
+            else if (Character.isLowerCase(c) )  result += (char)( ( (c -97+k)%26)+97 ) ;
+            else result += c;
         }
 
         return result;
