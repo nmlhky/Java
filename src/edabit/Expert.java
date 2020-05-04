@@ -2,10 +2,47 @@ package edabit;
 
 import java.util.*;
 
-
 public class Expert {
     public static void main(String[] args) {
+        System.out.println(isbn13("3866155239"));
+    }
 
+    public static String isbn13(String str) {
+        if(str.length() == 13){
+            int sum=Integer.parseInt(str.charAt(0)+"");
+            for (int i = 1; i < 13; i += 2) {
+                sum += Character.getNumericValue(str.charAt(i)) * 3;
+                sum += Character.getNumericValue(str.charAt(i+1)) ;
+            }
+            if (sum%10==0) return "Valid";
+            else return "Invalid";
+        }
+        if (str.length()==10){
+            int sum =0;
+            int index =10;
+
+            for (int i = 0; i < 10; i++) {
+                if (str.charAt(i) ==  'X') sum += 10 * index;
+                else sum += Character.getNumericValue(str.charAt(i)) * index ;
+                index--;
+            }
+            if (sum%11 != 0) return "Invalid";
+            else {
+                str = 978+str;
+                int sum2=Integer.parseInt(str.charAt(0)+"");
+                for (int i = 1; i < 13; i += 2) {
+                    sum2 += Character.getNumericValue(str.charAt(i)) * 3;
+                    sum2 += Character.getNumericValue(str.charAt(i+1)) ;
+                }
+                if (sum2%10==0) return str;
+                int add =  10-sum2%10;
+                if (add + Character.getNumericValue(str.charAt(12)) > 10) {
+                    return String.valueOf( Long.valueOf(str)-sum2%10 );
+                }
+                return String.valueOf(Long.valueOf(str) + add);
+            }
+        }
+        return "Invalid";
     }
 
     public static String longestSubstring(String digits) {
@@ -14,7 +51,6 @@ public class Expert {
 
         return "not yet";
     }
-
 
     public static String reverseLegoYoda(String text) {
         String[] sentences = text.split("\\.\\s?");
