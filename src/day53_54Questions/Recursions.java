@@ -1,6 +1,6 @@
-package day55Recursion;
+package day53_54Questions;
 
-public class Questions {
+public class Recursions {
     public static void main(String[] args) {
         System.out.println(power(3,3));
     }
