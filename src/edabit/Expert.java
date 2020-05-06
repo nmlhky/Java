@@ -4,7 +4,57 @@ import java.util.*;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(isbn13("3866155239"));
+        //System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",new String[]{"b"}));
+        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",null));
+    }
+
+    public static String stripUrlParams(String url, String[] paramsToStrip) {
+        String[] urlParts = url.split("\\?");
+        if (urlParts.length == 1 ) return url;
+
+        //ArrayList<String> list = new ArrayList<>(List.of(paramsToStrip));
+
+        Map hm = new HashMap<String,Integer>();
+
+        String[] querys = urlParts[1].split("&");
+
+        for (int i = 0; i < querys.length; i++) {
+            String[] temp = querys[i].split("=");
+            //if (list.contains(temp[0])) continue;
+            hm.put(temp[0],temp[1]);
+        }
+
+        String query = "?";
+        Iterator iterator = hm.entrySet().iterator();
+
+        while (iterator.hasNext()){
+            query += iterator.next().toString() + "&";
+        }
+
+        System.out.println(query);
+
+        return urlParts[0] + query.substring(0,query.length()-1);
+    }
+
+    public static int[] quadSequence(int... args) {
+        int[] diff = new int[args.length*2 -1];
+        for (int i = 0; i < args.length-1; i++) {
+            diff[i] = args[i+1]-args[i] ;
+        }
+        int diffOfDiff = diff[1] - diff[0];
+
+        for (int i = args.length-1; i < diff.length ; i++) {
+            diff[i] = diff[i-1] + diffOfDiff;
+        }
+
+        int[] result = new int[args.length];
+        result[0] = args[args.length-1] + diff[args.length-1];
+
+        for (int i = 1; i < args.length; i++) {
+            result[i] = result[i-1] + diff[args.length-1+i];
+        }
+
+        return result;
     }
 
     public static String isbn13(String str) {
@@ -28,7 +78,8 @@ public class Expert {
             }
             if (sum%11 != 0) return "Invalid";
             else {
-                str = 978+str;
+                str = 978+str.replaceAll("\\D","0");
+                System.out.println(str);
                 int sum2=Integer.parseInt(str.charAt(0)+"");
                 for (int i = 1; i < 13; i += 2) {
                     sum2 += Character.getNumericValue(str.charAt(i)) * 3;
