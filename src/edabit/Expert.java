@@ -4,15 +4,17 @@ import java.util.*;
 
 public class Expert {
     public static void main(String[] args) {
-        //System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",new String[]{"b"}));
-        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",null));
+        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",new String[]{"b"}));
+        //System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",null));
     }
 
     public static String stripUrlParams(String url, String[] paramsToStrip) {
         String[] urlParts = url.split("\\?");
         if (urlParts.length == 1 ) return url;
-
-        //ArrayList<String> list = new ArrayList<>(List.of(paramsToStrip));
+        ArrayList<String> list =new ArrayList<>();
+        if(paramsToStrip != null) {
+            Collections.addAll(list,paramsToStrip);
+        }
 
         Map hm = new HashMap<String,Integer>();
 
@@ -20,7 +22,7 @@ public class Expert {
 
         for (int i = 0; i < querys.length; i++) {
             String[] temp = querys[i].split("=");
-            //if (list.contains(temp[0])) continue;
+            if (list != null) {if (list.contains(temp[0])) continue;}
             hm.put(temp[0],temp[1]);
         }
 
@@ -30,8 +32,6 @@ public class Expert {
         while (iterator.hasNext()){
             query += iterator.next().toString() + "&";
         }
-
-        System.out.println(query);
 
         return urlParts[0] + query.substring(0,query.length()-1);
     }
