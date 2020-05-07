@@ -1,11 +1,79 @@
 package questionsAnswers.edabit;
 
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",new String[]{"b"}));
-        //System.out.println(stripUrlParams("https://edabit.com?a=1&b=2&a=2",null));
+        System.out.println(translateSentence("I like to eat honey waffles"));
+        //System.out.println(translateWord("Cat"));
+
+
+    }
+
+    public static String translateWord(String word) {
+        if (word == "") return word;
+        if (isVowel(word.charAt(0))) return word + "yay";
+        if(Character.isUpperCase(word.charAt(0))) {
+            for (int i = 0; i < word.length(); i++) {
+                if (isVowel(word.charAt(i))) return word.substring(i,i+1).toUpperCase() + word.substring(i+1) + word.substring(0, i).toLowerCase() + "ay";
+            }
+        }
+        else {
+            for (int i = 0; i < word.length(); i++) {
+                if (isVowel(word.charAt(i))) return word.substring(i) + word.substring(0, i) + "ay";
+            }
+        }
+        return word;
+    }
+
+    public static String translateSentence(String sentence) {
+        if (sentence == "") return "";
+        ArrayList<String> list = new ArrayList<>();
+        String temp = "";
+        for (int i = 0; i < sentence.length(); i++) {
+            if (Character.isAlphabetic(sentence.charAt(i))) temp += sentence.charAt(i);
+            else {
+                if (temp != "") list.add(temp);
+                list.add(sentence.charAt(i)+"");
+                temp = "";
+            }
+        }
+        if (temp != "") list.add(temp);
+
+        String result = "";
+        for (int i = 0; i < list.size(); i++) {
+            if (Pattern.matches("\\p{Punct}",list.get(i))){
+                result += list.get(i);
+            }
+            else {
+                result += translateWord(list.get(i));
+            }
+        }
+        return result;
+    }
+    public static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) return true;
+        return false;
+    }
+
+    public static String translateSentence2(String sentence) {
+        if (sentence == "") return "";
+        String punch = "";
+        StringBuilder sb = new StringBuilder(sentence);
+        for (int i = 0; i < sb.length(); i++) {
+            if (Pattern.matches("\\p{Punct}",sentence.charAt(i)+"")){
+                punch += sb.charAt(i);
+                sb.deleteCharAt(i);
+            }
+        }
+        String[] arr = sb.toString().split(" ");
+        String result = translateWord(arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            result += " " + translateWord(arr[i]);
+        }
+        return result + punch;
     }
 
     public static String stripUrlParams(String url, String[] paramsToStrip) {
@@ -94,13 +162,6 @@ public class Expert {
             }
         }
         return "Invalid";
-    }
-
-    public static String longestSubstring(String digits) {
-        ArrayList<Integer> substring = new ArrayList<>();
-        long digit = Long.parseLong(digits);
-
-        return "not yet";
     }
 
     public static String reverseLegoYoda(String text) {
