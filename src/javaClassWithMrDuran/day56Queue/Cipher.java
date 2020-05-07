@@ -1,7 +1,5 @@
 package javaClassWithMrDuran.day56Queue;
 
-import java.util.Collection;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -16,21 +14,21 @@ public class Cipher {
         }
 
         String result ="";
-        int value;
+        int k;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == ' ') {
+            char c = s.charAt(i);
+            if (c == ' ') {
                 result += " ";
                 continue;
             }
 
-            value = q.poll();
-            result +=  (char)(s.codePointAt(i) - value );
-//            System.out.println(s.codePointAt(i));
-//            System.out.println(value);
-//            System.out.println(s.codePointAt(i) + value);
-            q.add(value);
-        }
+            k = q.poll();
 
+            if (Character.isUpperCase(c) )  result += (char)( ( (c -65-k)%26)+65 ) ;
+            else if (Character.isLowerCase(c) )  result += (char)( ( (c -19-k)%26)+97 ) ;
+            else result += c;
+            q.add(k);
+        }
 
         return result;
     }
