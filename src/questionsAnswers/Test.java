@@ -4,14 +4,36 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-        String s = scanner.nextLine();
-        System.out.println(isOrdered(s));
-
+        System.out.println(isOrdered(scanner.nextLine()));
     }
 
     public static boolean isOrdered(String str){
+        String[] myStrArray = str.substring(0,str.length()-2).split(" ");
+        if (myStrArray.length <= 2 ) return true;
+
+        boolean asc = true;
+        boolean desc = true;
+
+        // Check ascending
+        for (int i = 0; i < myStrArray.length-1; i++) {
+            if (!(Integer.parseInt(myStrArray[i]) >= Integer.parseInt(myStrArray[i + 1]))) {
+                asc = false;
+                break;
+            }
+        }
+        // Check descending
+        for (int i = 0; i < myStrArray.length-1; i++) {
+            if (!(Integer.parseInt(myStrArray[i]) <= Integer.parseInt(myStrArray[i + 1]))){
+                desc = false;
+                break;
+            }
+        }
+
+        return  asc || desc;
+    }
+
+    public static boolean isOrdered2(String str){
         if (str == "") return true;
         String[] arr = str.split(" ");
         if (arr.length == 2 || arr.length ==1) return true;
