@@ -1,28 +1,35 @@
 package questionsAnswers.edabit;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class VeryHard {
     public static void main(String[] args) {
-        System.out.println(maxPossible(523, 76));
+        System.out.println(maxPossible(523, 91255));
     }
 
+    //Maximize the First Number
     public static int maxPossible(int n1, int n2) {
         StringBuilder sb = new StringBuilder(String.valueOf(n1));
-        Queue<Integer> q = new LinkedList<>();
-        String n2S = String.valueOf(n2);
-        for (int i = 0; i < n2S.length(); i++) {
-            q.add(Integer.valueOf(n2S.charAt(i)+""));
+        TreeSet<Integer> tree = new TreeSet<>(Collections.reverseOrder());
+
+        while (n2>0){
+            tree.add(n2%10);
+            n2 /= 10;
         }
 
-        String result = "";
-        while (!q.isEmpty()) {
-            int key = q.poll();
+        System.out.println(tree);
+
+        Iterator iterator = tree.iterator();
+        int result = 0;
+
+        while (iterator.hasNext()){
+            int key = (int) iterator.next();
             for (int i = 0; i < sb.length(); i++) {
-               // if (Integer.valueOf(sb.charAt(i)) < key)
-                System.out.println("not completed");
+                System.out.println(key + " " + Integer.parseInt(sb.charAt(i) ));
+                if (key > Integer.valueOf(sb.charAt(i)) ) {
+                    System.out.println(i);
+                    sb.replace(i,i+1,String.valueOf(key));
+                }
             }
         }
 
