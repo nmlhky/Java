@@ -4,30 +4,28 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        String s = "What an easy task, right";
 
-        System.out.println(new ArrayList<String>(Arrays.asList(s.split(" "))).size());
-
-
-        ArrayList<Integer> list1 = new ArrayList<>(Arrays.asList(1,2,3,4,5,6));
-        ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(2,3,4,6,3,1));
-        ArrayList<Integer> list3 = new ArrayList<>();
-
-        int[] arr = {75,22,14,7,0};
-        System.out.println(isOrdered(arr));
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        System.out.println(isOrdered(s));
 
     }
 
-    public static boolean isOrdered(int[] arr){
+    public static boolean isOrdered(String str){
+        if (str == "") return true;
+        String[] arr = str.split(" ");
+        if (arr.length == 2 || arr.length ==1) return true;
+
         ArrayList<Integer> list = new ArrayList<Integer>();
         ArrayList<Integer> listSorted = new ArrayList<Integer>();
         ArrayList<Integer> listRevSorted = new ArrayList<Integer>();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (i==arr.length-1 & arr[i]==0) continue;
-            list.add(arr[i]);
-            listSorted.add(arr[i]);
-            listRevSorted.add(arr[i]);
+        for (int i = 0; i < arr.length ; i++) {
+            int k = Integer.valueOf(arr[i]);
+            if (i==arr.length-1 & k == 0) continue;
+            list.add(k);
+            listSorted.add(k);
+            listRevSorted.add(k);
         }
 
         Collections.sort(listSorted);
@@ -38,7 +36,7 @@ public class Test {
             return false;
         }
 
-        return true;
+        return  true;
     }
 
     public static String  hashSet(String s){
