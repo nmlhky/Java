@@ -1,14 +1,38 @@
 package questionsAnswers.edabit;
 
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.regex.Pattern;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(translateSentence("I like to eat honey waffles"));
-        //System.out.println(translateWord("Cat"));
+        System.out.println(ulam(206));
 
+    }
 
+    public static int ulam(int n) {
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> check = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        while (list.size()<=n) {
+            for (int i = 0; i < list.size(); i++) {
+                for (int j = i+1; j < list.size(); j++) {
+                    check.add(list.get(i) + list.get(j));
+                }
+            }
+            Collections.sort(check);
+            for (int i = 1; i < check.size()-1; i++) {
+                if (check.get(i) <= list.get(list.size()-1)) continue;
+                if (check.get(i) == check.get(i-1) || check.get(i) == check.get(i+1) ) continue;
+                list.add(check.get(i));
+                check.clear();
+                break;
+            }
+        }
+        return list.get(n-1);
     }
 
     public static String translateWord(String word) {
@@ -52,28 +76,11 @@ public class Expert {
         }
         return result;
     }
+
     public static boolean isVowel(char ch) {
         ch = Character.toLowerCase(ch);
         if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) return true;
         return false;
-    }
-
-    public static String translateSentence2(String sentence) {
-        if (sentence == "") return "";
-        String punch = "";
-        StringBuilder sb = new StringBuilder(sentence);
-        for (int i = 0; i < sb.length(); i++) {
-            if (Pattern.matches("\\p{Punct}",sentence.charAt(i)+"")){
-                punch += sb.charAt(i);
-                sb.deleteCharAt(i);
-            }
-        }
-        String[] arr = sb.toString().split(" ");
-        String result = translateWord(arr[0]);
-        for (int i = 1; i < arr.length; i++) {
-            result += " " + translateWord(arr[i]);
-        }
-        return result + punch;
     }
 
     public static String stripUrlParams(String url, String[] paramsToStrip) {

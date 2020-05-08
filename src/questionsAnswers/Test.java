@@ -13,20 +13,32 @@ public class Test {
         ArrayList<Integer> list2 = new ArrayList<>(Arrays.asList(2,3,4,6,3,1));
         ArrayList<Integer> list3 = new ArrayList<>();
 
-        for (int i = 0; i < list1.size(); i++) {
-            list3.add( list1.get(i) * list2.get(i)  );
+        int[] arr = {75,22,14,7,0};
+        System.out.println(isOrdered(arr));
+
+    }
+
+    public static boolean isOrdered(int[] arr){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> listSorted = new ArrayList<Integer>();
+        ArrayList<Integer> listRevSorted = new ArrayList<Integer>();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (i==arr.length-1 & arr[i]==0) continue;
+            list.add(arr[i]);
+            listSorted.add(arr[i]);
+            listRevSorted.add(arr[i]);
         }
 
-        System.out.println(list3);
+        Collections.sort(listSorted);
+        Collections.sort(listRevSorted, Collections.reverseOrder());
 
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i)==listSorted.get(i) || list.get(i)==listRevSorted.get(i)) continue;
+            return false;
+        }
 
-        System.out.println(elasticize("hello"));
-        //System.out.println(Arrays.toString(removeDups(new  int[] {0,0,2,2,1,0})));
-        //System.out.println(capLast("java is super fun"));
-        //System.out.println(sevenBoom(new int[]{19, 5, 2, 42, 2, 77}));
-
-        System.out.println(hashSet("java is java"));
-
+        return true;
     }
 
     public static String  hashSet(String s){

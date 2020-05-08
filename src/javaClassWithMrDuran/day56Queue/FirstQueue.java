@@ -5,6 +5,8 @@ import java.util.Queue;
 
 public class FirstQueue {
     public static void main(String[] args) {
+        //add -- adding
+        //peek -
         Queue<String> myQ = new LinkedList<>();
         myQ.add("a");
         myQ.add("b");
