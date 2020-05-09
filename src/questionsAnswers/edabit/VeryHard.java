@@ -25,7 +25,7 @@ public class VeryHard {
         while (iterator.hasNext()){
             int key = (int) iterator.next();
             for (int i = 0; i < sb.length(); i++) {
-                System.out.println(key + " " + Integer.parseInt(sb.charAt(i) ));
+                //System.out.println(key + " " + Integer.parseInt(sb.charAt(i) ));
                 if (key > Integer.valueOf(sb.charAt(i)) ) {
                     System.out.println(i);
                     sb.replace(i,i+1,String.valueOf(key));

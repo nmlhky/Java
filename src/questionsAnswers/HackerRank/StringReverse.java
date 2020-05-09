@@ -2,16 +2,17 @@ package questionsAnswers.HackerRank;
 
 public class StringReverse {
     public static void main(String[] args) {
-        String A = "maaadaaam";
-        int n = A.length();
+        String str = "maaadaaam";
+        System.out.println(stringReverse(str));
+    }
 
-        String yes = "yes";
-        for (int i = 0 ; i < n/2 ; i++){
-            if(A.charAt(i) != A.charAt((n-1)-i)){
-                yes = "no";
+    public static boolean stringReverse(String str){
+        for (int i = 0 ; i < str.length()/2 ; i++){
+            if(str.charAt(i) != str.charAt((str.length()-1)-i)){
+                return false;
             }
         }
-
-        System.out.println(yes);
+        return true;
     }
+
 }
