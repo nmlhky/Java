@@ -4,61 +4,46 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(isOrdered(scanner.nextLine()));
+        System.out.println(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
+
     }
 
-    public static boolean isOrdered(String str){
-        String[] myStrArray = str.substring(0,str.length()-2).split(" ");
-        if (myStrArray.length <= 2 ) return true;
+    public static String noYelling(String str) {
+//        str.replaceAll("~((?<!:)[^\p{L}\p{N}])\1+~u" , )
+//        $str = preg_replace('~((?<!:)[^\p{L}\p{N}])\1+~u', '$1', $str);
+        return str;
+    }
 
-        boolean asc = true;
-        boolean desc = true;
-
-        // Check ascending
-        for (int i = 0; i < myStrArray.length-1; i++) {
-            if (!(Integer.parseInt(myStrArray[i]) >= Integer.parseInt(myStrArray[i + 1]))) {
-                asc = false;
-                break;
+    public static String sevenBoom(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int n = arr[i]; // n = 6574;
+            while (n > 0) {
+                System.out.println("before "+n);
+                System.out.println("n % 10 = " + n%10);
+                if (n % 10 == 7) return "Boom!";
+                n = n / 10;
+                System.out.println("after "+n);
+                System.out.println();
             }
         }
-        // Check descending
-        for (int i = 0; i < myStrArray.length-1; i++) {
-            if (!(Integer.parseInt(myStrArray[i]) <= Integer.parseInt(myStrArray[i + 1]))){
-                desc = false;
-                break;
-            }
-        }
-
-        return  asc || desc;
+        return "there is no 7 in the array";
     }
 
-    public static boolean isOrdered2(String str){
-        if (str == "") return true;
-        String[] arr = str.split(" ");
-        if (arr.length == 2 || arr.length ==1) return true;
-
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        ArrayList<Integer> listSorted = new ArrayList<Integer>();
-        ArrayList<Integer> listRevSorted = new ArrayList<Integer>();
-
-        for (int i = 0; i < arr.length ; i++) {
-            int k = Integer.valueOf(arr[i]);
-            if (i==arr.length-1 & k == 0) continue;
-            list.add(k);
-            listSorted.add(k);
-            listRevSorted.add(k);
-        }
-
-        Collections.sort(listSorted);
-        Collections.sort(listRevSorted, Collections.reverseOrder());
-
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i)==listSorted.get(i) || list.get(i)==listRevSorted.get(i)) continue;
-            return false;
-        }
-
-        return  true;
+    public static boolean isPalindromePossible(String str) {
+        long l = str.codePoints().distinct().count();
+        return (str.length() - l + 1 == l || str.length() - l == l) ;
     }
 
+    public static boolean isPalindromePossible2(String str) {
+        HashSet<Character> results = new HashSet<>();
+        HashSet<Character> set = new HashSet<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (set.add(ch))
+                results.add(ch);
+            else
+                results.remove(ch);
+        }
+        return results.size() < 2;
+    }
 }

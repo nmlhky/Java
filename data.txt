@@ -1,3 +1,1 @@
-Apple $2
-banana $3
-Pineapple $5
+Apple Gala $1
