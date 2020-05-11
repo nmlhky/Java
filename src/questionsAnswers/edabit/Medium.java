@@ -1,6 +1,6 @@
 package questionsAnswers.edabit;
 
-public class JavaMedium {
+public class Medium {
     public static void main(String[] args) {
 
         encrypt("apple");

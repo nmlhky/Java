@@ -6,7 +6,7 @@ public class test {
     public static void main(String[] args) {
         Map<String, int[]> prices = new HashMap<String, int[]>();
         prices.put("milk", new int[]{1, 3, 2});
-        prices.put("eggs", new int[] {1, 1, 2});
+        prices.put("eggs", new int[]{1, 1, 2});
 
         for (String key: prices.keySet()){
             System.out.print(key +" ");

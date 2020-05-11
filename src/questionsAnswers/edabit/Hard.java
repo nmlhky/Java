@@ -2,7 +2,7 @@ package questionsAnswers.edabit;
 
 import java.util.*;
 
-public class JavaHard {
+public class Hard {
     public static void main(String[] args) {
 
         System.out.println(century(101));

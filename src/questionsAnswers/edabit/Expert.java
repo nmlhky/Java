@@ -1,40 +1,43 @@
 package questionsAnswers.edabit;
 
 import java.util.*;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.regex.Pattern;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(ulam(206));
-
+        System.out.println(ulam(9));
     }
 
+    //Ulam Sequence
     public static int ulam(int n) {
         ArrayList<Integer> list = new ArrayList<>();
-        ArrayList<Integer> check = new ArrayList<>();
+        TreeSet<Integer> check = new TreeSet<>();
+        HashSet<Integer> dublicate = new HashSet<>();
         list.add(1);
         list.add(2);
         list.add(3);
         while (list.size()<=n) {
+            check.clear();
             for (int i = 0; i < list.size(); i++) {
                 for (int j = i+1; j < list.size(); j++) {
-                    check.add(list.get(i) + list.get(j));
+                    int k = list.get(i) + list.get(j);
+                    if (k>7000) continue;
+                    if(!check.add(k)){
+                        dublicate.add(k);
+                    }
                 }
             }
-            Collections.sort(check);
-            for (int i = 1; i < check.size()-1; i++) {
-                if (check.get(i) <= list.get(list.size()-1)) continue;
-                if (check.get(i) == check.get(i-1) || check.get(i) == check.get(i+1) ) continue;
-                list.add(check.get(i));
-                check.clear();
+
+            for (int i : check) {
+                if (i <= list.get(list.size()-1) || dublicate.contains(i)) continue;
+                list.add(i);
                 break;
             }
         }
         return list.get(n-1);
     }
 
+    //English to Pig Latin Translator
     public static String translateWord(String word) {
         if (word == "") return word;
         if (isVowel(word.charAt(0))) return word + "yay";
@@ -50,7 +53,6 @@ public class Expert {
         }
         return word;
     }
-
     public static String translateSentence(String sentence) {
         if (sentence == "") return "";
         ArrayList<String> list = new ArrayList<>();
@@ -76,13 +78,13 @@ public class Expert {
         }
         return result;
     }
-
     public static boolean isVowel(char ch) {
         ch = Character.toLowerCase(ch);
         if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) return true;
         return false;
     }
 
+    //Strip URL Query Parameters
     public static String stripUrlParams(String url, String[] paramsToStrip) {
         String[] urlParts = url.split("\\?");
         if (urlParts.length == 1 ) return url;
@@ -111,6 +113,7 @@ public class Expert {
         return urlParts[0] + query.substring(0,query.length()-1);
     }
 
+    //Quad Sequence
     public static int[] quadSequence(int... args) {
         int[] diff = new int[args.length*2 -1];
         for (int i = 0; i < args.length-1; i++) {
@@ -171,6 +174,7 @@ public class Expert {
         return "Invalid";
     }
 
+    //Reverse LEGO Yoda
     public static String reverseLegoYoda(String text) {
         String[] sentences = text.split("\\.\\s?");
         String result = "";
@@ -192,6 +196,7 @@ public class Expert {
         return result;
     }
 
+    //Headline Hash Tags
     public static String[] getHashTags2(String str) {
         return Arrays.stream(str.toLowerCase().replaceAll("\\p{Punct}", "").split(" "))
                 .sorted((s1, s2) -> s2.length() - s1.length())
@@ -227,7 +232,6 @@ public class Expert {
         if (list.size()==2)  return new String[]{"#"+str.toLowerCase().split(" ")[0], "#"+str.toLowerCase().split(" ")[1]};
         return new String[]{"#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[0].toString())), "#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[1].toString())), "#"+list.get(Integer.parseInt(hmSorted.keySet().toArray()[2].toString()))};
     }
-
     private static HashMap SortByValues(HashMap map) {
         List list = new LinkedList(map.entrySet());
         // Defined Custom Comparator here
@@ -248,6 +252,7 @@ public class Expert {
         return sortedHashMap;
     }
 
+    //Centered Hexagonal Number
     public static String hexLattice(int n) {
         if (n==1) return " o ";
         ArrayList<Integer> check = new ArrayList<>();
@@ -291,6 +296,7 @@ public class Expert {
         return hex;
     }
 
+    //ABACABA Pattern
     public static String abacabaPattern(int n) {
         char[] c = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         String s = "";
@@ -305,6 +311,7 @@ public class Expert {
         return s;
     }
 
+    //Pilish Strings
     public static String pilish_string(String s) {
         if (s=="") return "";
         long piLong = 314159265358979L;
