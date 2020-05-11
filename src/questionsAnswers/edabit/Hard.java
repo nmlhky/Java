@@ -1,14 +1,33 @@
 package questionsAnswers.edabit;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Hard {
     public static void main(String[] args) {
 
-        System.out.println(century(101));
-        System.out.println(endLetter(13));
-        System.out.println(replace("asdfebnkefjnjnefasdaa","o"));
+        System.out.println(noYelling("What went wrong?????????"));
+
     }
+
+    //No Yelling
+    public static String noYelling(String phrase) {
+        String regex = "\\p{Punct}*";
+
+        // Use compile(regex) if you want case sensitive.
+        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+
+        Matcher m = p.matcher(phrase);
+        //phrase = phrase.replaceAll(m.group(), m.group(1));
+        while (m.find()) {
+            System.out.println(m.group());
+            phrase = phrase.replaceAll(m.group(), "X");
+        }
+
+        return phrase;
+    }
+
 
     public static String replace(String s,String c){
         return s.replaceAll("[aeiuo]",c);
