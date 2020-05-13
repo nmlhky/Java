@@ -4,14 +4,32 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
-
+        //System.out.println(noYelling("I just!!! can!!! not!!! believe!!! it!!!"));
+        String[] arr= getBirthdayCake("Jack", 10);
+        for (String s: arr ) {
+            System.out.println(s);
+        }
     }
 
     public static String noYelling(String str) {
 //        str.replaceAll("~((?<!:)[^\p{L}\p{N}])\1+~u" , )
 //        $str = preg_replace('~((?<!:)[^\p{L}\p{N}])\1+~u', '$1', $str);
         return str;
+    }
+
+    public static String[] getBirthdayCake(String name,int age) {
+        char c = (age%2==0) ? '#' : '*';
+        String[] result = new String[3];
+        String temp = "";
+        result[1] = c+" "+age+" Happy Birthday "+name+"! "+age+" "+c;
+
+        for (int i = 0; i < result[1].length(); i++) {
+            temp += c;
+        }
+        result[0] = temp;
+        result[2] = temp;
+
+        return result;
     }
 
     public static String sevenBoom(int[] arr) {
