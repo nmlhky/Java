@@ -13,17 +13,18 @@ public class Hard {
 
     //No Yelling
     public static String noYelling(String phrase) {
-        String regex = "\\p{Punct}*";
+        String regex = "\\G(\\W)(\\W)(\\W)(\\W)(\\W)(\\W)";
 
+        phrase = phrase.replaceAll(regex,"$1");
         // Use compile(regex) if you want case sensitive.
-        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
-
-        Matcher m = p.matcher(phrase);
-        //phrase = phrase.replaceAll(m.group(), m.group(1));
-        while (m.find()) {
-            System.out.println(m.group());
-            phrase = phrase.replaceAll(m.group(), "X");
-        }
+//        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+//
+//        Matcher m = p.matcher(phrase);
+//        //phrase = phrase.replaceAll(m.group(), m.group(1));
+//        while (m.find()) {
+//            System.out.println(m.group());
+//            phrase = phrase.replaceAll(m.group(), "X");
+//        }
 
         return phrase;
     }
