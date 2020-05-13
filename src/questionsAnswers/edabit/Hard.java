@@ -7,8 +7,14 @@ import java.util.regex.Pattern;
 public class Hard {
     public static void main(String[] args) {
 
-        System.out.println(noYelling("What went wrong?????????"));
+        //System.out.println(noYelling("What went wrong?????????"));
+        System.out.println(maxProduct(8));
 
+    }
+
+    public static int[] maxProduct(int i){
+
+        return new int[]{1,2};
     }
 
     //No Yelling
