@@ -9,6 +9,8 @@ public class VeryHard {
         System.out.println(Arrays.toString(sameVowelGroup(new String[]{"toe", "ocelot", "maniac"})));
     }
 
+
+
     //Vowel Families
     public static String[] sameVowelGroup(String[] words) {
         //get first word vowels

@@ -6,8 +6,42 @@ import java.util.regex.Pattern;
 
 public class Hard {
     public static void main(String[] args) {
-
+        System.out.println(sigilize("i am healthy"));
     }
+
+    public static String sigilize(String desire) {
+        return desire;
+    }
+
+
+
+    public static String sigilize3(String desire) {
+        StringBuilder sb = new StringBuilder();
+        desire.replaceAll(" ","").chars().filter(c -> !isVowel((char)c)).distinct().forEach(c -> sb.append((char) c));
+
+        return sb.toString().toUpperCase();
+    }
+
+    public static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        return  (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) ;
+    }
+
+    public static String sigilize2(String desire) {
+        HashSet<Character> hs = new HashSet<>();
+        for (int i = 0; i < desire.length(); i++) {
+            if (!isVowel(desire.charAt(i))) hs.add(desire.charAt(i));
+        }
+
+        Iterator iterator = hs.iterator();
+        String s = "";
+
+        while (iterator.hasNext()){
+            s += iterator.next();
+        }
+        return s;
+    }
+
 
 
 
