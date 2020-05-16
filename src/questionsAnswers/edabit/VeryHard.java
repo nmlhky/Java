@@ -6,7 +6,40 @@ import java.util.*;
 public class VeryHard {
     public static void main(String[] args) {
         System.out.println(addStrNums("1156", "1351"));
+        System.out.println(Arrays.toString(sameVowelGroup(new String[]{"toe", "ocelot", "maniac"})));
+    }
 
+    //Vowel Families
+    public static String[] sameVowelGroup(String[] words) {
+        //get first word vowels
+        HashSet<Character> vowels = new HashSet<>();
+        for (int i = 0; i < words[0].length(); i++) {
+            if (isVowel(words[0].charAt(i))) vowels.add(words[0].charAt(i));
+        }
+
+        //check is same vowel with first word
+        boolean isSameVowel = true;
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < words.length; i++) {
+            isSameVowel = true;
+            for (int j = 0; j < words[i].length(); j++) {
+                if (isVowel(words[i].charAt(j)) && !vowels.contains(words[i].charAt(j))) isSameVowel = false;
+            }
+            if (isSameVowel) list.add(words[i]);
+        }
+
+        //convert Arraylist to array
+        String[] result = new String[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
+        }
+
+        //return
+        return result;
+    }
+    public static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        return  (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ) ;
     }
 
     //Add Two String Numbers
