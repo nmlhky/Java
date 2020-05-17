@@ -6,11 +6,29 @@ import java.util.regex.Pattern;
 
 public class Hard {
     public static void main(String[] args) {
-        System.out.println(sigilize("i am healthy"));
+        System.out.println(isValidIP("123.056.189.10"));
     }
 
-    public static String sigilize(String desire) {
-        return desire;
+    //IPv4 Validation
+    public static boolean isValidIP(String str) {
+        String[] arr = str.split("\\.");
+
+        if (arr.length != 4   ||  str.contains(" ") || str.contains(".0")) return false;
+
+        for (int i = 0; i < 4; i++) {
+            try {
+                if (Integer.parseInt(arr[i]) > 255 || Integer.parseInt(arr[i]) < 0)  return false;
+            }
+            catch (Exception e){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean isValidIP2(String str) {
+        return str.matches("^((25[0-5] |2[0-4][0-9] |[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$");
     }
 
 
@@ -29,17 +47,16 @@ public class Hard {
 
     public static String sigilize2(String desire) {
         HashSet<Character> hs = new HashSet<>();
+        String result = "";
         for (int i = 0; i < desire.length(); i++) {
-            if (!isVowel(desire.charAt(i))) hs.add(desire.charAt(i));
+            if (!isVowel(desire.charAt(i))) {
+                if (hs.add(desire.charAt(i))){
+                    result += desire.charAt(i);
+                }
+            }
         }
 
-        Iterator iterator = hs.iterator();
-        String s = "";
-
-        while (iterator.hasNext()){
-            s += iterator.next();
-        }
-        return s;
+        return result;
     }
 
 

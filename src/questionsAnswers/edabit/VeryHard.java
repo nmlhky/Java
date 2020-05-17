@@ -5,11 +5,32 @@ import java.util.*;
 
 public class VeryHard {
     public static void main(String[] args) {
-        System.out.println(addStrNums("1156", "1351"));
-        System.out.println(Arrays.toString(sameVowelGroup(new String[]{"toe", "ocelot", "maniac"})));
+        //System.out.println(addStrNums("1156", "1351"));
+        //System.out.println(Arrays.toString(sameVowelGroup(new String[]{"toe", "ocelot", "maniac"})));
+        System.out.println(longestRun(new int[]{1, 2, 3, 2, 1}));
     }
 
 
+
+    //Longest Consecutive Run
+    public static int longestRun(int[] arr) {
+        int max = 1;
+        ArrayList<Integer> list = new ArrayList<>();
+        Arrays.sort(arr);
+        arr = Arrays.stream(arr).distinct().toArray();
+
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i]+1 == arr[i+1]) max++;
+            else {
+                list.add(max);
+                max = 1;
+            }
+        }
+        list.add(max);
+        Collections.sort(list,Collections.reverseOrder());
+
+        return list.get(0);
+    }
 
     //Vowel Families
     public static String[] sameVowelGroup(String[] words) {
