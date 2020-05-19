@@ -1,4 +1,4 @@
-package questionsAnswers.Selenium;
+package Selenium;
 
 
 import org.openqa.selenium.By;
