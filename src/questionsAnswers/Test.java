@@ -5,12 +5,13 @@ import java.util.*;
 public class Test {
     public static void main(String[] args) {
 
-        int i,j,a,s,d;
-        i=j=a=s=d=3;
-        System.out.println(i);
-        System.out.println(j);
-        System.out.println(a);
-        System.out.println(s);
-        System.out.println(d);
+        String n1 = "Melih";
+        String n2 = "Melih";
+        String n3 = new String("Melih");
+
+        System.out.println(n1.equals(n2));
+        System.out.println(n1.equals(n3));
+        System.out.println(n1 == n2);
+        System.out.println(n1 == n3);
     }
 }
