@@ -3,6 +3,7 @@ package questionsAnswers.dailyGroupTask;
 public class Task012 {
     public static void main(String[] args) {
         System.out.println(emptySq(10));
+        System.out.println(replaceNonAlpabetic("Te7n asd67"));
     }
 
     public static int emptySq(int step) {
@@ -21,4 +22,9 @@ public class Task012 {
         return a == b || a == c || b == c ? 2 : 0;
 
     }
+
+    public static String replaceNonAlpabetic (String str){
+        return str.replaceAll("[^a-zA-Z:]","");
+    }
+
 }
