@@ -27,4 +27,14 @@ public class Task012 {
         return str.replaceAll("[^a-zA-Z:]","");
     }
 
+    public static String concatenateStringsWithoutDigits(String[] strings) {
+        // write your code with StringBuilder here
+        String str = "";
+        for (String s: strings) {
+            str += s.replaceAll("[^a-zA-Z:]","");
+        }
+
+        return str;
+    }
+
 }
