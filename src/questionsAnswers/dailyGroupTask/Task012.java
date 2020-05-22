@@ -12,4 +12,13 @@ public class Task012 {
         }
         return n*4;
     }
+
+    public static int equal(int a, int b, int c) {
+
+        if (a == b && b == c) {
+            return 3;
+        }
+        return a == b || a == c || b == c ? 2 : 0;
+
+    }
 }
