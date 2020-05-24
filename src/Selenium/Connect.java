@@ -16,15 +16,15 @@ public class Connect {
         System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
         System.setProperty("webdriver.edge.driver","C:\\edgedriver.exe");
 
-//        ChromeDriver driver  = new ChromeDriver();
-//        driver.get("https://www.google.com/");
-//        System.out.println(driver.getTitle());
+        ChromeDriver driver  = new ChromeDriver();
+        driver.get("https://www.google.com/");
+        System.out.println(driver.getTitle());
 
 //        EdgeDriver edge = new EdgeDriver();
 //        edge.get("https://www.google.com/");
 
-        FirefoxDriver d= new FirefoxDriver();
-        d.get("https://www.google.com/");
+//        FirefoxDriver d= new FirefoxDriver();
+//        d.get("https://www.google.com/");
     }
 
 }
