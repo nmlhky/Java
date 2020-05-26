@@ -12,12 +12,13 @@ public class Laptop {
         System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
 
         searcLaptop();
-        for (int i = 2; i < 6; i++) {
+        for (int i = 2; i < 3; i++) {
             Thread.sleep(2000);
             findProduct(i);
             getTitle();
             driver.navigate().back();
         }
+
 
         //driver.navigate().back();
     }

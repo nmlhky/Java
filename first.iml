@@ -63,5 +63,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="apiguardian-api-1.1.0" level="project" />
   </component>
 </module>
