@@ -4,26 +4,18 @@ import java.util.*;
 
 public class Test {
     public static void main(String[] args) {
-        Queue<Integer> queue = new ArrayDeque<>(Arrays.asList(1, 2, 3, 4));
+        int[] arr = {1, 3, 3, 4};
+        System.out.println(isShorted(arr));
+    }
 
-        // write your code here
-        queue.offer(5);
-
-        queue.poll();
-        queue.poll();
-
-        System.out.println(queue);
-
-
-//        String n1 = "Rekha";
-//        String n2 = "Rekha";
-//        String n3 = new String("Rekha");
-//
-//        System.out.println(n1.equals(n2));
-//        System.out.println(n1 == n2);
-//
-//        System.out.println(n1.equals(n3));
-//        System.out.println(n1 == n3);
+    public static boolean isShorted(int[] arr){
+        boolean result = true;
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i+1]){
+                result = false;
+            }
+        }
+        return result;
     }
 
 }

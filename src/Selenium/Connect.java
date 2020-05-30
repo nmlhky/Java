@@ -12,9 +12,9 @@ import java.sql.Driver;
 
 public class Connect {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
-        System.setProperty("webdriver.gecko.driver","C:\\geckodriver.exe");
-        System.setProperty("webdriver.edge.driver","C:\\edgedriver.exe");
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\nmkay\\IdeaProjects\\chromedriver.exe");
+        System.setProperty("webdriver.gecko.driver","C:\\Users\\nmkay\\IdeaProjects\\geckodriver.exe");
+        System.setProperty("webdriver.edge.driver","C:\\Users\\nmkay\\IdeaProjects\\edgedriver.exe");
 
         ChromeDriver driver  = new ChromeDriver();
         driver.get("https://www.google.com/");
