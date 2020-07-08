@@ -2,6 +2,7 @@ package questionsAnswers;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,11 +16,16 @@ public class Test {
 //
 //        list.sort(List.De);
 
-        int x = 1;
-        for (int i = 0; i < 3; i++) {
-            x += 5 * i;
+        String s = "apple";
+        String removed = "";
+
+        for (int i = 0; i < s.length(); i++) {
+            if (!removed.contains(s.substring(i,i+1))){
+                removed += s.charAt(i);
+            }
         }
-        System.out.println(x);
+
+        System.out.println(removed);
 
 
     }
