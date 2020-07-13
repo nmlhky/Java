@@ -5,7 +5,7 @@ public class Oce {
         //tekrar bakacaklarim
         //2,
 
-
+        //6
         int i = 0;
         do {
             System.out.println(i);
