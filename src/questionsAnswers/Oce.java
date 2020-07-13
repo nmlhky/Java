@@ -2,6 +2,10 @@ package questionsAnswers;
 
 public class Oce {
     public static void main(String[] args) {
+        //tekrar bakacaklarim
+        //2,
+
+
         int i = 0;
         do {
             System.out.println(i);
@@ -15,9 +19,11 @@ public class Oce {
 
         System.out.println();
 
+
+        //tanesi 2 lik,  5 tane array tutuyor
         String[][] arrrrr = new String[5][2];
         System.out.println(arrrrr[1].length);
-        //tanesi 2 lik,  5 tane array tutuyor
+
 
         //new booleen false
         boolean bo = new Boolean(null);
