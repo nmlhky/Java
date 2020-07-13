@@ -6,6 +6,13 @@ public class MountainBike extends Bicycle{
     private int tireSize;
     private int seatHeight;
 
+    public MountainBike() {
+        super();
+        this.speed = 10;
+        this.startStop = true;
+
+    }
+
     public MountainBike(int speed, boolean startStop, int tireSize, int seatHeight) {
         super();
         this.speed = speed;
