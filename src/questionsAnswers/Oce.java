@@ -3,9 +3,9 @@ package questionsAnswers;
 public class Oce {
     public static void main(String[] args) {
         //tekrar bakacaklarim
-        //2,
+        //2,25
 
-        //6
+        //27
         int i = 0;
         do {
             System.out.println(i);
@@ -29,5 +29,25 @@ public class Oce {
         boolean bo = new Boolean(null);
         System.out.println(bo);
 
+        //soru 11
+        dosum(10,20); // int
+        dosum(10l,20l); // float
+        dosum(10.0,20.0); //double
+        dosum(10.0f,20.0f); //float
+
+        //soru 24
+        //concat ekleme yapiyor. eger bossa throw null pointer exception.
+
+
+    }
+
+    public static void dosum(int x, int y){
+        System.out.println("int");
+    }
+    public static void dosum(double x, double y){
+        System.out.println("double");
+    }
+    public static void dosum(float x, float y){
+        System.out.println("float");
     }
 }
