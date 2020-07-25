@@ -3,7 +3,7 @@ package questionsAnswers;
 public class Oce {
     public static void main(String[] args) {
         //tekrar bakacaklarim
-        //2,25
+        //2,25,28,31
 
         //27
         int i = 0;
@@ -37,6 +37,11 @@ public class Oce {
 
         //soru 24
         //concat ekleme yapiyor. eger bossa throw null pointer exception.
+
+        //soru 30
+        int a = 1;
+        int b = 2;
+        if (a++ < ++b){} // 1 < 2 true
 
 
     }
