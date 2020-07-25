@@ -5,7 +5,7 @@ public class Oce {
         //tekrar bakacaklarim
         //2,25,28,31
 
-        //27
+        //33
         int i = 0;
         do {
             System.out.println(i);
