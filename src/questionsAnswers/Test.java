@@ -27,6 +27,8 @@ public class Test {
 
         System.out.println(removed);
 
+        System.out.println(5^5^6);
+
 
     }
 
