@@ -5,6 +5,4 @@ public class PrintDiffirentNumber {
         System.out.println(5^5^6); // 6
     }
 
-
-
 }
