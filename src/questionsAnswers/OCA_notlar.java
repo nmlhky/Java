@@ -3,7 +3,9 @@ package questionsAnswers;
 public class OCA_notlar {
     public static void main(String[] args) {
         //yanlislarim
-        //20,24,25,31
+        //20,24,25,31,42
+        //look again
+        //46 , 48, 50 56 57
 
         //new booleen false
         boolean bo = new Boolean(null);
