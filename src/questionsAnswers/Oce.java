@@ -3,7 +3,7 @@ package questionsAnswers;
 public class Oce {
     public static void main(String[] args) {
         //tekrar bakacaklarim
-        //2,25,28,31
+        //25,28,31
 
         //33
         int i = 0;
