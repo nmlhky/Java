@@ -6,6 +6,10 @@ public class Computer implements Computers {
     protected int cpuSpeed;
     protected String cpuType;
 
+    public Computer() {
+
+    }
+
     public Computer(String mainBoardSpec, int memorySize, int cpuSpeed, String cpuType) {
         this.mainBoardSpec = mainBoardSpec;
         this.memorySize = memorySize;
@@ -35,6 +39,10 @@ public class Computer implements Computers {
 
     public void boot() {
         /* boot */
+    }
+
+    public void print(){
+        System.out.println("computer");
     }
 
     @Override

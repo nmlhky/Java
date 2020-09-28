@@ -1,60 +1,44 @@
 package questionsAnswers;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class OCA_notlar {
     public static void main(String[] args) {
-        //yanlislarim
-        //20,24,25,31,42,69,77,84,93,136 164
-        //look again
-        //46 48 50 56 57 100 101 143 154 155 168 173
+        //20 24 25 31 42 46 50 56 57 77 84 93 100 101 136 143 154 155 164 168 173
 
+
+
+
+        //Final notlar
         //new booleen false
-        boolean bo = new Boolean(null);
-        System.out.println(bo);
-
-
-        //tanesi 2 lik,  5 tane array tutuyor
-        String[][] arrrrr = new String[5][2];
-        System.out.println(arrrrr[4].length);
-
+        String[][] arrrrr = new String[5][2]; //tanesi 2 lik,  5 tane array tutuyor
         //enhanced for loop = foreach
-
-        //x++ 1   ++x 2
-        int x = 1;
-        int y = 1;
-        System.out.println( ( x++ < ++y ) ? ("x = "+ x + " | y = "+ y) : "false");
-
-
-        //ans`ler hep farkli ans.
-        try {
-            int num = 10;
-            int div = 1;
-            int ans = num/ div;
-        } catch (ArithmeticException ae){
-            int ans = 0;
-        }
-        //System.out.println(ans);
-
-        //importda package degil class import yapilir
+        //x++ == 1 ,  ++x == 2
+        //concat ekleme yapiyor. eger bossa throw null pointer exception.
+        // animal boncuk = new cat() >> is cat
+        //importda package degil class import yapilir //javac myproje.java // java myproje
+        //continue`den sonra bir sey yazarsak >> compilation fails.
 
 
-        //
-        int numbers [];
-        numbers = new int[2];
-        numbers[0] = 10;
-        numbers[1] = 20;
-        numbers = new int[4];
-        numbers[2] = 30;
-        numbers[3] = 40;
-        for (int n : numbers) {
-            System.out.println(n);// 0 0 30 40
-        }
+//        //ans`ler hep farkli ans.
+//        try {
+//            int num = 10;
+//            int div = 0;
+//            int ans = num/ div;
+//            System.out.println(ans+"1");
+//        } catch (ArithmeticException ae){
+//            int ans = 5;
+//            System.out.println(ans+"2");
+//        }
+//        int ans = 10;
+//        System.out.println(ans+"3");
 
-        // animal boncuk = new cat() >> is cat or animal?
-
-
-
-
-
+        //exception olan classi cagirinca main`e de exception eklemek lazim
+        //void hata() throws Exception{ }
+        //public static void main(String[] args) throw Exception{ hata() }
 
 
     }

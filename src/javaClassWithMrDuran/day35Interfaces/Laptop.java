@@ -1,11 +1,14 @@
 package javaClassWithMrDuran.day35Interfaces;
 
-public class Laptop implements Computers {
+public class Laptop extends Computer {
     protected  String mainBoardSpec;
     protected int memorySize;
     protected int cpuSpeed;
     protected String cpuType;
     protected int batteryPercentage;
+
+    public Laptop() {
+    }
 
     public Laptop(String mainBoardSpec, int memorySize, int cpuSpeed, String cpuType, int batteryPercentage) {
         this.mainBoardSpec = mainBoardSpec;
@@ -33,6 +36,10 @@ public class Laptop implements Computers {
 
     public void InstallMemory() {
         /* Install Memory */
+    }
+
+    public void print(){
+        System.out.println("laptop");
     }
 
 }
