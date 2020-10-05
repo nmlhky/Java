@@ -1,7 +1,6 @@
 package questionsAnswers.HackerRank;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -9,22 +8,34 @@ public class Problem_Solving {
 
     public static void main(String[] args) {
 
-        miniMaxSum(new int[]{1,2,3,4,5});
+        miniMaxSum(new int[]{942381765, 627450398, 954173620, 583762094, 236817490});
+
     }
 
 
     //https://www.hackerrank.com/challenges/mini-max-sum/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
     static void miniMaxSum(int[] arr) {
-        List<Integer> list = new ArrayList<>();
-        int sum = 0;
+        long sum = 0;
+        int max = 0;
+        int min = Integer.MAX_VALUE;
 
-        for (int i = 0; i < arr.length; i++) {
-            list.add(arr[i]);
-            sum += arr[i];
+
+
+        for (int n : arr) {
+            System.out.println(n);
+            sum += n;
+            if (n>max) max = n;
+            if (n<min) min = n;
+
+            System.out.println(sum);
+            System.out.println(max);
+            System.out.println(min);
+
+            System.out.println("------------");
         }
 
-        Collections.sort(list);
-        System.out.println( (sum - list.get(list.size()-1)) + " " + (sum - list.get(0)));
+
+        System.out.println( (sum - max) + " " + (sum - min));
 
     }
 
