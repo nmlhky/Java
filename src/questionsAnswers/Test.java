@@ -6,8 +6,8 @@ public class Test {
 
     public static void main(String[] args) {
 
-        int[] arr = {7,7,42,42,1,56,55,75};
-        System.out.println(solution(7,7,arr));
+        int[] arr = {7,7,8,8,1,56,55,75,7,9};
+        System.out.println(solution(7,8,arr));
 
     }
 
