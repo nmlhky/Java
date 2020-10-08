@@ -1,16 +1,55 @@
 package questionsAnswers.HackerRank;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Problem_Solving {
 
     public static void main(String[] args) {
 
-        miniMaxSum(new int[]{942381765, 627450398, 954173620, 583762094, 236817490});
+        int[] array = { 4, 4,4};
+
+        List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
+
+        List<Integer> list2 = new ArrayList<>();
+
+        for (int i = 0; i < 100000; i++) {
+            list2.add(9999999);
+        }
+
+        System.out.println(birthdayCakeCandles(list2));
+
 
     }
+
+
+    //https://www.hackerrank.com/challenges/grading/problem
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        // Write your code here
+        for (int i = 0; i <grades.size() ; i++) {
+            if (grades.get(i) < 40) continue;
+            if (grades.get(i) % 5 > 2)  grades.set(i, grades.get(i) + (5- grades.get(i) % 5 ) ) ;
+        }
+
+        return grades;
+    }
+
+
+    //https://www.hackerrank.com/challenges/birthday-cake-candles/problem
+    public static int birthdayCakeCandles(List<Integer> candles) {
+        Collections.sort(candles,Collections.reverseOrder());
+
+        for (int i = 0; i < candles.size(); i++) {
+            if (!candles.get(0).equals(candles.get(i))  )   return i;
+        }
+            return candles.size();
+    }
+
+
 
 
     //https://www.hackerrank.com/challenges/mini-max-sum/problem?h_r=next-challenge&h_v=zen&h_r=next-challenge&h_v=zen
