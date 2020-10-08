@@ -1,4 +1,4 @@
-package javaClassWithMrDuran.projects;
+package questionsAnswers.interview_question;
 
 import java.util.ArrayList;
 

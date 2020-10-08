@@ -1,4 +1,4 @@
-package javaClassWithMrDuran.interviewQuestions;
+package questionsAnswers.interview_question;
 
 public class Palindrome {
     public static void main(String[] args) {

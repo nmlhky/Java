@@ -1,4 +1,4 @@
-package javaClassWithMrDuran.interviewQuestions;
+package questionsAnswers.interview_question;
 
 import java.util.Arrays;
 
