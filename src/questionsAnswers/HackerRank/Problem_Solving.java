@@ -1,28 +1,43 @@
 package questionsAnswers.HackerRank;
 
 import javax.swing.*;
+import javax.xml.stream.events.Characters;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Problem_Solving {
 
     public static void main(String[] args) {
 
-        int[] array = { 4, 4,4};
+        System.out.println(timeConversion("07:05:45PM"));
 
-        List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
+    }
 
-        List<Integer> list2 = new ArrayList<>();
 
-        for (int i = 0; i < 100000; i++) {
-            list2.add(9999999);
+    //https://www.hackerrank.com/challenges/time-conversion/problem?h_r=next-challenge&h_v=zen
+    static String timeConversion(String s) {
+        List<String> chars = Stream.of(s.split(":")).map(x -> new String(x)).collect(Collectors.toList());
+        System.out.println(chars);
+        System.out.println(chars.get(8));
+
+        return "ok";
+    }
+
+
+
+    //https://www.hackerrank.com/challenges/compare-the-triplets/problem
+    static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+        List<Integer> point =  Arrays.asList(0, 0);
+
+        for (int i = 0; i < a.size(); i++) {
+            if (a.get(i) > b.get(i)) point.set(0,point.get(0) + 1);
+            else if (a.get(i) < b.get(i)) point.set(1,point.get(1) + 1);
         }
-
-        System.out.println(birthdayCakeCandles(list2));
-
+        return point;
 
     }
 

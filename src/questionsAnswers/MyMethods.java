@@ -1,5 +1,6 @@
 package questionsAnswers;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class MyMethods {
     public static void main(String[] args) {
@@ -23,21 +24,6 @@ public class MyMethods {
         return reverse;
     }
 
-    public static String elasticize(String word) {
-        String result = "";
-        int count = 0;
-        int i = 0;
-
-        while (count < word.length()) {
-            for (int j = 0; j < i +1 ; j++) {
-                result += word.charAt(count);
-            }
-            if (count < word.length() / 2-1) i++;
-            else if ( count > word.length()/2-1)i--;
-            count++;
-        }
-        return result;
-    }
 
     public static boolean isVowel(char ch) {
         ch = Character.toLowerCase(ch);
@@ -45,16 +31,13 @@ public class MyMethods {
     }
 
     public static int[] removeDups(int[] nums) {
-        ArrayList<Integer> list = new ArrayList<>();
+        Set<Integer> set = Arrays.stream(nums).boxed().collect(Collectors.toSet());
 
-        for (int n : nums) {
-            if (!list.contains(n)) list.add(n);
-        }
+        int[] result = new int[set.size()];
+        int idx = 0;
 
-        int[] result = new int[list.size()];
-
-        for (int i = 0; i < result.length; i++) {
-            result[i] = list.get(i);
+        for (int i : set) {
+            result[idx++] = i;
         }
 
         return result;
