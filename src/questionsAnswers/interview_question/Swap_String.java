@@ -10,7 +10,7 @@ public class Swap_String {
     }
 
     public static String swapString(String str){
-        return str.split("[.]")[1] + "." + str.split("[.]")[0];
+        return str.split("\\.")[1] + "." + str.split("[.]")[0];
     }
 
     public static int array_size_without_dub(int[] arr){
