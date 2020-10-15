@@ -13,15 +13,15 @@ public class Balloon {
 
     }
 
-    public static int solution(String s) {
+    public static int solution(String s) { // ## Author Melih Kaya ##
 
-        List<Character> list = s.chars().mapToObj(c -> (char) c).collect(Collectors.toList());
+        List<Character> list = s.chars().mapToObj(c -> (char) c).collect(Collectors.toList()); // create list from s`s each char
 
-        char[] arr = "BALLOON".toCharArray();
+        char[] arr = "BALLOON".toCharArray(); // create char array from balloon`s char
         boolean isHas = true;
         int count = 0;
 
-        while (isHas) {
+        while (isHas) { //chekc list has b,a,l,l,o,o,n  if has loop countinued and count++
             for (int i = 0; i < arr .length; i++) {
                 if (list. contains(arr[i])) {
                     list. remove((Character) arr[i]);
@@ -33,6 +33,7 @@ public class Balloon {
             if (isHas) count++;
         }
         return count;
+
     }
 
 }
