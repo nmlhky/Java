@@ -16,6 +16,9 @@ public class Converters {
         int[] array = { 4, 4,4};
         List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
 
+        //int list to array
+        int[] arr = list.stream().mapToInt(i -> i).toArray();
+
         //reverse order
         Collections.sort(list,Collections.reverseOrder());
 

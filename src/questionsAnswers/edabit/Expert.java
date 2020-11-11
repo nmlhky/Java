@@ -5,7 +5,70 @@ import java.util.regex.Pattern;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(ulam(9));
+        System.out.println(Arrays.toString(bucketize("ab bc cd", 1)));
+
+    }
+
+//    //Reverse Sort: Lexical and Length -- https://edabit.com/challenge/iZNdGSDXyRMmHrNNn
+//    public static String reverseSort(String str) {
+//
+//    }
+
+
+
+    //Word Buckets - https://edabit.com/challenge/3FAMXz4wAYGqpCtDR
+    public static String[] bucketize(String phrase, int n) {
+        String[] arr = phrase.split(" ");
+        ArrayList<String> list = new ArrayList();
+        String temp = "";
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length() > n )
+                return new String[0];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+
+            if (temp.equals("") ) {
+                temp = arr[i];
+                continue;
+            }
+            if ( temp.length() + arr[i].length() < n) {
+                temp += " " + arr[i];
+            }else{
+
+                list.add(temp);
+                i--;
+                temp = "";
+            }
+
+        }
+
+        list.add(temp);
+
+        return list.toArray(new String[list.size()]);
+    }
+
+
+
+    //license plate - https://edabit.com/challenge/HssePSisNvLpv72zD
+    public static String licensePlate(String code, int group) {
+        code = code.toUpperCase().replaceAll("\\W","");
+        String result="";
+        int k = code.length() % group;
+        int n = 1;
+
+        for (int i = 0; i < code.length(); i++) {
+
+            if ((i==k || i == group * n + k) && i>0 ) {
+                n++;
+                result += "-";
+            }
+
+            result += code.charAt(i);
+        }
+
+        return result;
     }
 
     //Ulam Sequence
