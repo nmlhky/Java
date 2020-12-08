@@ -5,14 +5,37 @@ import java.util.regex.Pattern;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(bucketize("ab bc cd", 1)));
+        System.out.println(reverseSort("You've rocked the pragmatic world in the making!"));
 
     }
 
-//    //Reverse Sort: Lexical and Length -- https://edabit.com/challenge/iZNdGSDXyRMmHrNNn
-//    public static String reverseSort(String str) {
-//
-//    }
+
+    //Palindrome Descendant https://edabit.com/challenge/8zSSCYQRKC9wWWbkN
+    public static boolean palindromeDescendant(int num) {
+        return true;
+    }
+
+
+    //Reverse Sort: Lexical and Length -- https://edabit.com/challenge/iZNdGSDXyRMmHrNNn
+    public static String reverseSort(String str) {
+        String[] arr = str.split(" ");
+
+        String result = "";
+        int max = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].length()>max) max = arr[i].length();
+        }
+
+        for (int i = max; i >= 0 ; i--) {
+            for (int j = arr.length-1; j >= 0 ; j--) {
+                if (arr[j].length() == i ) result += arr[j] + " ";
+            }
+        }
+
+
+        return result.substring(0,result.length()-1);
+    }
 
 
 
