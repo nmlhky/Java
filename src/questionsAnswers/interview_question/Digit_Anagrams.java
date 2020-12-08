@@ -1,8 +1,6 @@
 package questionsAnswers.interview_question;
 
 
-import java.util.Arrays;
-
 public class Digit_Anagrams {
     public static void main(String[] args) {
         int[] a = {25,35,872,228,53,278,872};
