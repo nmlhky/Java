@@ -1,13 +1,47 @@
 package questionsAnswers.edabit;
 
+import javax.xml.stream.events.Characters;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Hard {
     public static void main(String[] args) {
-        System.out.println(isValidIP("123.056.189.10"));
+
+        System.out.println(missingLetter(new String[]{"b", "c", "e", "f"}));
+        System.out.println("-----------");
+        System.out.println(missingLetter(new String[]{"B", "C", "E", "F"}));
     }
+
+
+
+    //Find the Missing Letter  https://edabit.com/challenge/4hZ9cHgvkZ94sr2ae
+    //
+    public static String missingLetter(String[] arr) {
+
+        if (arr[0]==arr[0].toUpperCase()) {
+
+            String[] strings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+
+            int index = Arrays.asList(strings).indexOf(arr[0]);
+
+            for (int i = 0; i < arr.length; i++)
+                if (strings[i + index] != arr[i])
+                    return strings[i + index];
+
+        }
+
+        String[] strings = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
+        int index = Arrays.asList(strings).indexOf(arr[0]);
+
+        for (int i = 0; i < arr.length; i++)
+            if (strings[i + index] != arr[i])
+                return strings[i + index];
+
+
+        return arr[0];
+
+    }
+
 
     //IPv4 Validation
     public static boolean isValidIP(String str) {
