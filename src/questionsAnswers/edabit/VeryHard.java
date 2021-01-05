@@ -5,11 +5,24 @@ import java.util.*;
 
 public class VeryHard {
     public static void main(String[] args) {
-        //System.out.println(addStrNums("1156", "1351"));
-        //System.out.println(Arrays.toString(sameVowelGroup(new String[]{"toe", "ocelot", "maniac"})));
-        System.out.println(longestRun(new int[]{1, 2, 3, 2, 1}));
+
+        System.out.println(digitsCount(0));
     }
 
+    //Recursion: Count The Digits https://edabit.com/challenge/vpSCPsQKcQwnFdMS4
+    public static int digitsCount(long n) {
+
+        if (n==0) return 1;
+
+        n = Math.abs(n);
+
+        int count = 0;
+        while (n>0){
+            n /= 10;
+            count++;
+        }
+        return count;
+    }
 
 
     //Longest Consecutive Run
