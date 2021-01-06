@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class minUniqueSum {
     public static void main(String[] args) {
-        int[] array = { 4, ,4};
+        int[] array = { 4, 4,4};
         List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
         System.out.println(minUniqueSum(list));
     }

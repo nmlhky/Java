@@ -2,7 +2,7 @@ package questionsAnswers.interview_question;
 
 import java.util.Arrays;
 
-public class test {
+public class Count_Tiny_Pairs {
 
     public static void main(String[] args) {
 
