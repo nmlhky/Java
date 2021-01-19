@@ -8,7 +8,13 @@ public class unbalancedStrings {
         Scanner sc = new Scanner(System.in);
 
         while (sc.hasNext()) {
-            /* String input=sc.next();
+
+
+            String input=sc.next();
+            while(input.length() != (input = input.replaceAll("\\(\\)|\\[\\]|\\{\\}", "")).length());
+            System.out.println(input.isEmpty());
+
+                        /* String input=sc.next();
             int count1 = 0;
             int count2 = 0;
             int count3 = 0;
@@ -31,10 +37,6 @@ public class unbalancedStrings {
             }
 
              */
-
-            String input=sc.next();
-            while(input.length() != (input = input.replaceAll("\\(\\)|\\[\\]|\\{\\}", "")).length());
-            System.out.println(input.isEmpty());
 
         }
 
