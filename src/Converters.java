@@ -1,5 +1,3 @@
-package questionsAnswers;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -20,8 +18,7 @@ public class Converters {
         int[] arr = list.stream().mapToInt(i -> i).toArray();
 
         //reverse order
-        Collections.sort(list,Collections.reverseOrder());
-
+        list.sort(Collections.reverseOrder());
 
 
     }

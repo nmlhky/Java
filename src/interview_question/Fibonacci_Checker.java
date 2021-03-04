@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 public class Fibonacci_Checker {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.io.*;
 
@@ -7,14 +7,13 @@ import static java.util.stream.Collectors.joining;
 public class DayOfTheProgrammer {
     // Complete the dayOfProgrammer function below.
     static String dayOfProgrammer(int year) {
+
         if (year == 1918 ){
             return "26.09.1918";
         }else if (((year <= 1917) && (year%4 == 0)) || ((year > 1918) && (year%400 == 0 || ((year%4 == 0) && (year%100 != 0))))){
-            String day = "12.09." + year;
-            return day;
+            return "12.09." + year;
         } else {
-            String day = "13.09." + year;
-            return day;
+            return "13.09." + year;
         }
 
     }

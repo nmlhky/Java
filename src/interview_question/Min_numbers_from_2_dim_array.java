@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.Arrays;
 
@@ -19,7 +19,7 @@ public class Min_numbers_from_2_dim_array {
         int[] a = new int[arr.length];
 
         for (int i = 0; i < arr.length; i++) {
-            a[i] = Arrays.stream(arr[i]).min().getAsInt();;
+            a[i] = Arrays.stream(arr[i]).min().getAsInt();
         }
 
         return a;

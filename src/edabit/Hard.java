@@ -1,4 +1,4 @@
-package questionsAnswers.edabit;
+package edabit;
 
 import javax.xml.stream.events.Characters;
 import java.util.*;
@@ -34,14 +34,14 @@ public class Hard {
     //
     public static String missingLetter(String[] arr) {
 
-        if (arr[0]==arr[0].toUpperCase()) {
+        if (arr[0].equals(arr[0].toUpperCase())) {
 
             String[] strings = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
             int index = Arrays.asList(strings).indexOf(arr[0]);
 
             for (int i = 0; i < arr.length; i++)
-                if (strings[i + index] != arr[i])
+                if (!strings[i + index].equals(arr[i]))
                     return strings[i + index];
 
         }
@@ -51,7 +51,7 @@ public class Hard {
         int index = Arrays.asList(strings).indexOf(arr[0]);
 
         for (int i = 0; i < arr.length; i++)
-            if (strings[i + index] != arr[i])
+            if (!strings[i + index].equals(arr[i]))
                 return strings[i + index];
 
 
@@ -143,17 +143,13 @@ public class Hard {
 
     public static String endLetter(int n){
 
-        switch (n%10) {
-            case 1:
-                return n+"ST";
-            case 2:
-                return n+"ND";
-            case 3:
-                return n+"RD";
-            case 4:
-                return n+"TH";
-        }
-        return n+"TH";
+        return switch (n % 10) {
+            case 1 -> n + "ST";
+            case 2 -> n + "ND";
+            case 3 -> n + "RD";
+            case 4 -> n + "TH";
+            default -> n + "TH";
+        };
     }
 
     public static String century(int n){
@@ -213,8 +209,7 @@ public class Hard {
         String s = "" + num + numPlus1;
         double sqrt = Math.sqrt(Long.parseLong(s));
 
-        if (sqrt % 1 == 0 ) return true;
-        return false;
+        return sqrt % 1 == 0;
     }
 
     public static String kixCode(String addr) {
@@ -255,14 +250,14 @@ public class Hard {
     }
 
     public static int findOdd(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        for (int j : arr) {
             int count = 0;
-            for (int j = 0; j < arr.length; j++) {
-                if (arr[i] == arr[j])
+            for (int k : arr) {
+                if (j == k)
                     count++;
             }
             if (count % 2 != 0)
-                return arr[i];
+                return j;
         }
         return -1;
     }
@@ -343,15 +338,14 @@ public class Hard {
 
         int sum = 0;
 
-        for (int i = 0; i < list.size(); i++) {
-            sum += list.get(i);
+        for (Integer integer : list) {
+            sum += integer;
         }
 
         System.out.println(check);
         System.out.println(sum);
 
-        if ( sum % 10 == 0 || 10 - (sum %10) == check) return true;
-        return false;
+        return sum % 10 == 0 || 10 - (sum % 10) == check;
     }
 
     public static boolean almostPalindrome(String str) {
@@ -368,8 +362,7 @@ public class Hard {
             if (list1.get(i) != list2.get(i)) dif++;
         }
 
-        if (dif == 1) return true;
-        return false;
+        return dif == 1;
     }
 
     public static String elasticize(String word) {

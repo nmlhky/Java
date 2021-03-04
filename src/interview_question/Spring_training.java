@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -18,7 +18,7 @@ public class Spring_training {
 
     public static int spring_traing(int[] arr){
 
-        TreeMap<Integer, Integer> list = new TreeMap();
+        TreeMap<Integer, Integer> list = new TreeMap<>();
 
         for (int i = 0; i < arr.length-1; i++)
             if (arr[i] > arr[i+1])
@@ -34,7 +34,7 @@ public class Spring_training {
 
         while (iter.hasNext()){
             int k = list.get(iter.next()) ;
-            max = ( k > max ) ? k : max ;
+            max = Math.max(k, max);
         }
 
         for (int entry: list.keySet())

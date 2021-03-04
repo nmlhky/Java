@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 public class LeapRun {
     public static void main(String[] args) {

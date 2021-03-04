@@ -1,14 +1,10 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 public class Palindrome {
     public static void main(String[] args) {
+
         System.out.println(isPalindrone("abccba"));
-        boolean b= true;
-        if (b=false){
-            System.out.println("aa");
-        }else {
-            System.out.println("else");
-        }
+
     }
 
     public static boolean isPalindrone(String s){

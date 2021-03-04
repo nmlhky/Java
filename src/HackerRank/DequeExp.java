@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class DequeExp {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        Deque deque = new ArrayDeque<>();
-        HashSet hs = new HashSet();
+        Deque<Integer> deque = new ArrayDeque<>();
+        HashSet<Integer> hs = new HashSet();
         int n = in.nextInt();
         int m = in.nextInt();
         int max = 0;

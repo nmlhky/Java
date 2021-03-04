@@ -1,4 +1,4 @@
-package questionsAnswers.Projects;
+package Projects;
 
 import java.util.Scanner;
 

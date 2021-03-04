@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.util.*;
 
@@ -14,14 +14,13 @@ public class FilledOrders {
 
         int result = 0;
 
-        Iterator<Integer> iter = order.iterator();
-        while (iter.hasNext()){
-            int n = iter.next().intValue();
-            if ( n <= k ){
+        for (Integer n : order) {
+            if (n <= k) {
                 result++;
                 k -= n;
             }
         }
+
 
         return result;
     }

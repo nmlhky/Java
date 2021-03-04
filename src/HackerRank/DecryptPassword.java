@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.util.*;
 
@@ -37,7 +37,7 @@ public class DecryptPassword {
             }
         }
 
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
 
         for (char c : map.values())
             if (c != '-')

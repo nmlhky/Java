@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,8 +25,7 @@ public class SortedSum {
             Arrays.sort(arr);
 
             for (int j = 0; j <= i; j++ )
-                sum += (j+1) * arr[j];
-
+                sum += (long) (j + 1) * arr[j];
         }
 
         return sum;

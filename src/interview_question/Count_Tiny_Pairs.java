@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.Arrays;
 
@@ -8,22 +8,23 @@ public class Count_Tiny_Pairs {
 
     }
 
-    public static int countTinyPairs(int[] a, int[] b, int k) {
+    public static int countTinyPairs(int[] a, int[] b) {
+
         int element1 = a[0];
         int element2 = b[0];
-        for (int i = 0; i < a.length; i++) {
-            if (element1 > a[i]) {
-                element1 = a[i];
-            }
+        for (int j : a) {
+            if (element1 > j)
+                element1 = j;
+
         }
-        for (int i = 0; i < b.length; i++) {
-            if (element2 > b[i]) {
-                element2 = b[i];
-            }
+        for (int j : b) {
+            if (element2 > j)
+                element2 = j;
+
         }
-        k = (Arrays.stream(a).min().getAsInt()) +
+
+        return (Arrays.stream(a).min().getAsInt()) +
                 Arrays.stream(b).min().getAsInt();
-        return k;
     }
 
     public static String mergeStrings(String s1, String s2) {

@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,9 +22,9 @@ public class Balloon {
         int count = 0;
 
         while (isHas) { //chekc list has b,a,l,l,o,o,n  if has loop countinued and count++
-            for (int i = 0; i < arr .length; i++) {
-                if (list. contains(arr[i])) {
-                    list. remove((Character) arr[i]);
+            for (char c : arr) {
+                if (list.contains(c)) {
+                    list.remove((Character) c);
                 } else {
                     isHas = false;
                     break;

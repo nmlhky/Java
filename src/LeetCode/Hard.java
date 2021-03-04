@@ -1,4 +1,4 @@
-package questionsAnswers.LeetCode;
+package LeetCode;
 
 public class Hard {
     public static void main(String[] args) {

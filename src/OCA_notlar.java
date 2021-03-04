@@ -1,5 +1,3 @@
-package questionsAnswers;
-
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;

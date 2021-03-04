@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class TeamFormation2 {
         // n elemamli kumenin r elemanli altkumesini bulma
         //x = n! / ( (n-r)! .r! )
 
-        minPlayer = 3;
+
         int n = list.size();
         int sum = 0;
 
@@ -35,10 +35,9 @@ public class TeamFormation2 {
     }
 
     public static long fact(int n){
-        int number = n;
         long fact = 1;
         int i = 1;
-        while(i<=number)
+        while(i<=n)
         {
             fact = fact * i;
             i++;

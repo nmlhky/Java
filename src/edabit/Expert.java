@@ -1,4 +1,4 @@
-package questionsAnswers.edabit;
+package edabit;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -23,8 +23,8 @@ public class Expert {
         String result = "";
         int max = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length()>max) max = arr[i].length();
+        for (String s : arr) {
+            if (s.length() > max) max = s.length();
         }
 
         for (int i = max; i >= 0 ; i--) {
@@ -42,11 +42,11 @@ public class Expert {
     //Word Buckets - https://edabit.com/challenge/3FAMXz4wAYGqpCtDR
     public static String[] bucketize(String phrase, int n) {
         String[] arr = phrase.split(" ");
-        ArrayList<String> list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         String temp = "";
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].length() > n )
+        for (String s : arr) {
+            if (s.length() > n)
                 return new String[0];
         }
 
@@ -125,7 +125,7 @@ public class Expert {
 
     //English to Pig Latin Translator
     public static String translateWord(String word) {
-        if (word == "") return word;
+        if (word.equals("")) return word;
         if (isVowel(word.charAt(0))) return word + "yay";
         if(Character.isUpperCase(word.charAt(0))) {
             for (int i = 0; i < word.length(); i++) {
@@ -140,18 +140,18 @@ public class Expert {
         return word;
     }
     public static String translateSentence(String sentence) {
-        if (sentence == "") return "";
+        if (sentence.equals("")) return "";
         ArrayList<String> list = new ArrayList<>();
         String temp = "";
         for (int i = 0; i < sentence.length(); i++) {
             if (Character.isAlphabetic(sentence.charAt(i))) temp += sentence.charAt(i);
             else {
-                if (temp != "") list.add(temp);
+                if (!temp.equals("")) list.add(temp);
                 list.add(sentence.charAt(i)+"");
                 temp = "";
             }
         }
-        if (temp != "") list.add(temp);
+        if (!temp.equals("")) list.add(temp);
 
         String result = "";
         for (int i = 0; i < list.size(); i++) {
@@ -189,11 +189,11 @@ public class Expert {
             hm.put(temp[0],temp[1]);
         }
 
-        String query = "?";
-        Iterator iterator = hm.entrySet().iterator();
 
-        while (iterator.hasNext()){
-            query += iterator.next().toString() + "&";
+        String query = "?";
+
+        for (Object o : hm.entrySet()) {
+            query += o.toString() + "&";
         }
 
         return urlParts[0] + query.substring(0,query.length()-1);
@@ -252,9 +252,9 @@ public class Expert {
                 if (sum2%10==0) return str;
                 int add =  10-sum2%10;
                 if (add + Character.getNumericValue(str.charAt(12)) > 10) {
-                    return String.valueOf( Long.valueOf(str)-sum2%10 );
+                    return String.valueOf( Long.parseLong(str)-sum2%10 );
                 }
-                return String.valueOf(Long.valueOf(str) + add);
+                return String.valueOf(Long.parseLong(str) + add);
             }
         }
         return "Invalid";
@@ -308,7 +308,7 @@ public class Expert {
         }
 
         System.out.println(hm);
-        Map<Integer, Integer> hmSorted = SortByValues(hm);
+        HashMap<Integer, Integer> hmSorted = SortByValues(hm);
 
         System.out.println(hmSorted);
 
@@ -321,7 +321,7 @@ public class Expert {
     private static HashMap SortByValues(HashMap map) {
         List list = new LinkedList(map.entrySet());
         // Defined Custom Comparator here
-        Collections.sort(list, new Comparator() {
+        list.sort(new Comparator() {
             public int compare(Object o2, Object o1) {
                 return ((Comparable) ((Map.Entry) (o1)).getValue())
                         .compareTo(((Map.Entry) (o2)).getValue());
@@ -330,11 +330,12 @@ public class Expert {
 
         // Here I am copying the sorted list in HashMap
         // using LinkedHashMap to preserve the insertion order
-        HashMap sortedHashMap = new LinkedHashMap();
+        LinkedHashMap sortedHashMap = new LinkedHashMap();
         for (Iterator it = list.iterator(); it.hasNext();) {
             Map.Entry entry = (Map.Entry) it.next();
             sortedHashMap.put(entry.getKey(), entry.getValue());
         }
+
         return sortedHashMap;
     }
 

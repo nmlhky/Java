@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.Arrays;
 
@@ -10,8 +10,8 @@ public class FindLargestValue {
 
     public static int largestValue2(int[] arr){
         int max = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max) max = arr[i];
+        for (int j : arr) {
+            if (j > max) max = j;
         }
         return max;
     }

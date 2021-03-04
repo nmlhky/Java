@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import javax.swing.*;
 import javax.xml.stream.events.Characters;
@@ -20,7 +20,7 @@ public class Problem_Solving {
 
     //https://www.hackerrank.com/challenges/time-conversion/problem?h_r=next-challenge&h_v=zen
     static String timeConversion(String s) {
-        List<String> chars = Stream.of(s.split(":")).map(x -> new String(x)).collect(Collectors.toList());
+        List<String> chars = Stream.of(s.split(":")).map(String::new).collect(Collectors.toList());
         System.out.println(chars);
         System.out.println(chars.get(8));
 
@@ -56,7 +56,7 @@ public class Problem_Solving {
 
     //https://www.hackerrank.com/challenges/birthday-cake-candles/problem
     public static int birthdayCakeCandles(List<Integer> candles) {
-        Collections.sort(candles,Collections.reverseOrder());
+        candles.sort(Collections.reverseOrder());
 
         for (int i = 0; i < candles.size(); i++) {
             if (!candles.get(0).equals(candles.get(i))  )   return i;
@@ -112,9 +112,9 @@ public class Problem_Solving {
     static void plusMinus(int[] arr) {
         float p =0 , n=0 ,z=0;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i]>0) p++;
-            else if(arr[i]<0) n++;
+        for (int j : arr) {
+            if (j > 0) p++;
+            else if (j < 0) n++;
             else z++;
         }
 

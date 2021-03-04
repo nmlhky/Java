@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -16,7 +16,7 @@ public class TryCatchExp {
             System.out.println("java.util.InputMismatchException");
         }
         catch (Exception e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 }

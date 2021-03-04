@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.Arrays;
 
@@ -19,12 +19,10 @@ public class Balagrams {
             int index = sbSecond.indexOf("" + ch);
             if(index != -1){
                 sbSecond.deleteCharAt(index);
-            }else{
-                continue;
             }
         }
 
-        return sbSecond.length()==1 ? true : false;
+        return sbSecond.length() == 1;
     }
 
 

@@ -1,4 +1,4 @@
-package questionsAnswers.regex;
+package regex;
 
 import java.util.regex.Pattern;
 

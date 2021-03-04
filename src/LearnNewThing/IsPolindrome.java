@@ -1,4 +1,4 @@
-package questionsAnswers.LearnNewThing;
+package LearnNewThing;
 
 public class IsPolindrome {
 

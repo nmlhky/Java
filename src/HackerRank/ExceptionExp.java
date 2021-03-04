@@ -1,4 +1,4 @@
-package questionsAnswers.HackerRank;
+package HackerRank;
 
 import java.util.Scanner;
 
@@ -35,7 +35,7 @@ public class ExceptionExp {
             try {
                 System.out.println(my_calculator.power(n, p));
             } catch (Exception e) {
-                System.out.println(e);
+                System.out.println(e.getMessage());
             }
         }
     }

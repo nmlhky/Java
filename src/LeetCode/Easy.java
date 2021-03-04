@@ -1,4 +1,4 @@
-package questionsAnswers.LeetCode;
+package LeetCode;
 
 public class Easy {
     public static void main(String[] args) {
@@ -6,7 +6,7 @@ public class Easy {
     }
 
     public static boolean isPalindrome(int x) {
-        return  (""+x).equals(new StringBuffer(""+x).reverse().toString()) ?true:false;
+        return ("" + x).equals(new StringBuffer("" + x).reverse().toString());
     }
 
 

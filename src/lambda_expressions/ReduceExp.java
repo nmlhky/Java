@@ -1,4 +1,4 @@
-package questionsAnswers.lambda_expressions;
+package lambda_expressions;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,9 @@ public class ReduceExp {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1,2,3,4);
 
-        int sum = list.stream().reduce((x,y) -> x+y).get();
+        int sum = list.stream().reduce(Integer::sum).get();
+
+        //int sum = list.stream().reduce((x,y) -> x+y).get();
 
         System.out.println(sum);
     }

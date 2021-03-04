@@ -1,4 +1,4 @@
-package questionsAnswers.Projects;
+package Projects;
 
 import java.util.Random;
 
@@ -30,7 +30,7 @@ public class Sudoku {
     }
 
     public static void generate() {
-        int k=1,n=1;
+        int k, n=1;
         for(int i=0;i<9;i++)
         {
             k=n;
@@ -125,8 +125,7 @@ public class Sudoku {
 
     // combined method to check if a number possible to a row,col position is ok
     public static boolean isOk(int row, int col, int number) {
-        if ( isInRow(row, number)  &&  isInCol(col, number)  &&  isInBox(row, col, number) ) return true;
-        else return false;
+        return isInRow(row, number) && isInCol(col, number) && isInBox(row, col, number);
     }
 
     // we check if a possible number is already in a row

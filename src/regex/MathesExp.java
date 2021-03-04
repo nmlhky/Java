@@ -1,4 +1,4 @@
-package questionsAnswers.regex;
+package regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,7 +13,7 @@ public class MathesExp {
 
 
         //kaya veya aa ile bitiyorsa ? true : false
-        boolean isFinishWithKaya =  s.matches(".*kaya||.*aa") ;
+        boolean isFinishWithKaya =  s.matches(".*kaya|.*aa") ;
 
     }
 }

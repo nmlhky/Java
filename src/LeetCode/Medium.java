@@ -1,4 +1,4 @@
-package questionsAnswers.LeetCode;
+package LeetCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Medium {
     public static int lengthOfLongestSubstring(String s) {
         int max = 0;
 
-        List<Character> list = new ArrayList<Character>();
+        List<Character> list = new ArrayList<>();
 
         for (int i = 0; i < s.length(); i++) {
             list.add(s.charAt(i));

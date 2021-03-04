@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +15,9 @@ public class Count_Array_Element {
 
         TreeMap map = new TreeMap<Integer, Integer>();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (map.containsKey(arr[i])) map.put(arr[i], ((int) map.get(arr[i]) ) + 1  ) ;
-            else map.put(arr[i] , 1);
+        for (int j : arr) {
+            if (map.containsKey(j)) map.put(j, ((int) map.get(j)) + 1);
+            else map.put(j, 1);
         }
 
         return map;

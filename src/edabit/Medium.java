@@ -1,11 +1,11 @@
-package questionsAnswers.edabit;
+package edabit;
 
 public class Medium {
     public static void main(String[] args) {
 
-        encrypt("apple");
 
-        String str = new String("apple");
+        System.out.println(encrypt("apple"));
+
     }
 
     public static String encrypt(String word) {

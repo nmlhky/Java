@@ -1,4 +1,4 @@
-package questionsAnswers.edabit;
+package edabit;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -40,7 +40,7 @@ public class VeryHard {
             }
         }
         list.add(max);
-        Collections.sort(list,Collections.reverseOrder());
+        list.sort(Collections.reverseOrder());
 
         return list.get(0);
     }
@@ -56,12 +56,12 @@ public class VeryHard {
         //check is same vowel with first word
         boolean isSameVowel = true;
         ArrayList<String> list = new ArrayList<>();
-        for (int i = 0; i < words.length; i++) {
+        for (String word : words) {
             isSameVowel = true;
-            for (int j = 0; j < words[i].length(); j++) {
-                if (isVowel(words[i].charAt(j)) && !vowels.contains(words[i].charAt(j))) isSameVowel = false;
+            for (int j = 0; j < word.length(); j++) {
+                if (isVowel(word.charAt(j)) && !vowels.contains(word.charAt(j))) isSameVowel = false;
             }
-            if (isSameVowel) list.add(words[i]);
+            if (isSameVowel) list.add(word);
         }
 
         //convert Arraylist to array
@@ -100,16 +100,14 @@ public class VeryHard {
             list.add(n2%10);
             n2 /= 10;
         }
-        Collections.sort(list, Collections.reverseOrder());
+        list.sort(Collections.reverseOrder());
 
-        Iterator iterator = list.iterator();
-
-        while (iterator.hasNext()){
-            int key = (int) iterator.next();
+        for (Integer integer : list) {
+            int key = (int) integer;
             for (int i = 0; i < sb.length(); i++) {
-                if (key > Integer.parseInt(sb.charAt(i)+"") ) {
+                if (key > Integer.parseInt(sb.charAt(i) + "")) {
                     System.out.println(i);
-                    sb.replace(i,i+1,String.valueOf(key));
+                    sb.replace(i, i + 1, String.valueOf(key));
                     break;
                 }
             }
@@ -129,7 +127,7 @@ public class VeryHard {
     public static int[] encrypt(String str) {
         int[] arr = new int[str.length()];
 
-        arr[0] =   (int)( str.charAt(0) );
+        arr[0] = str.charAt(0);
 
         for (int i = 1; i < str.length(); i++) {
             arr[i] = (int)( str.charAt(i) )  - (int)( str.charAt(i-1) )  ;

@@ -1,4 +1,4 @@
-package questionsAnswers.interview_question;
+package interview_question;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class Push_zero_to_end {
     }
 
     public static int[] pushZeroToEnd(int[] arr, int n){
-        List<Integer>  list = new ArrayList();
+        ArrayList<Integer>  list = new ArrayList<Integer>();
 
         for (int i = 0; i < n; i++)
             if (arr[i] != 0)
