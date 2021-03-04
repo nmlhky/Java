@@ -20,9 +20,8 @@ public class Push_zero_to_end {
                 list.add(arr[i]);
 
 
-        for (int i = list.size(); i < arr.length; i++) {
+        for (int i = list.size(); i < arr.length; i++)
             list.add(0);
-        }
 
         return list.stream().mapToInt(i -> i).toArray();
     }
