@@ -2,18 +2,66 @@ package HackerRank;
 
 import javax.swing.*;
 import javax.xml.stream.events.Characters;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Problem_Solving {
 
+    private static final Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        System.out.println(timeConversion("07:05:45PM"));
+
+        System.out.println(biggerIsGreater("lmno"));
+    }
+
+    //biggerIsGreater https://www.hackerrank.com/challenges/bigger-is-greater/problem
+    static String biggerIsGreater(String w) {
+
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < w.length(); i++) {
+            list.add(Integer.valueOf(w.charAt(i)));
+        }
+
+        boolean noAnswer = true;
+
+        for (int i = list.size()-2; i >=0 ; i--) {
+            if (list.get(i)<list.get(i+1)) {
+                noAnswer = false;
+                int temp = list.get(i);
+                int min = 1000;
+                for (int j = list.size()-1; j > i; j--) {
+                    if (list.get(j) < min && list.get(j) > temp)
+                        min = list.get(j);
+                }
+
+                int j = list.lastIndexOf(min);
+                list.set(i,min);
+                list.set(j,temp);
+                Collections.sort(list.subList(i+1,list.size()));
+                break;
+            }
+        }
+
+        if (noAnswer) return "no answer";
+
+        StringBuilder result = new StringBuilder();
+
+        for (Integer i: list) {
+            result.append((char) i.intValue());
+        }
+
+        return result.toString();
+
+    }
+
+    //countApplesAndOranges https://www.hackerrank.com/challenges/apple-and-orange/problem
+    static void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {
+
+        System.out.println(Arrays.stream(apples).filter(x-> x+a >=s && x+a <=t ).count());
+        System.out.println(Arrays.stream(oranges).filter(x-> x+b >=s && x+b <=t ).count());
 
     }
 

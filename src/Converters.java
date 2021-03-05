@@ -14,6 +14,8 @@ public class Converters {
         int[] array = { 4, 4,4};
         List<Integer> list = Arrays.stream(array).boxed().collect(Collectors.toList());
 
+        List<Integer> list2 = Arrays.asList(12,9,13,4,9,2,4,12,15);
+
         //int list to array
         int[] arr = list.stream().mapToInt(i -> i).toArray();
 
