@@ -2,6 +2,9 @@ package HackerRank;
 
 import javax.swing.*;
 import javax.xml.stream.events.Characters;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -10,10 +13,36 @@ public class Problem_Solving {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
 
-        System.out.println(biggerIsGreater("lmno"));
+        System.out.println(kangaroo(0,3,4,2));
+
+    }
+
+    //Number Line Jumps https://www.hackerrank.com/challenges/kangaroo/problem
+    static String kangaroo(int x1, int v1, int x2, int v2) {
+        int dist = Math.abs(x1 - x2) ;
+        int dist2 = Math.abs(x1+v1 - x2+v2);
+
+        while (dist2 <= dist){
+            dist = Math.abs(x1 - x2) ;
+            x1 += v1;
+            x2 += v2;
+
+            dist2 = Math.abs(x1 - x2);
+
+            System.out.println("x1 : " + x1);
+            System.out.println("x2 : " + x2);
+            System.out.println("dist : " + dist);
+            System.out.println("dist2 : " + dist2);
+
+            if ( dist==0) return "YES";
+
+        }
+
+        return "NO";
+
     }
 
     //biggerIsGreater https://www.hackerrank.com/challenges/bigger-is-greater/problem
