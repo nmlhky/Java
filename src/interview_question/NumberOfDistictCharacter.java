@@ -3,6 +3,8 @@ package interview_question;
 
 public class NumberOfDistictCharacter {
     public static void main(String[] args) {
+
+        System.out.println(Math.sqrt(43*43 + 25* 25));
         System.out.println(numberOfDistictCharacter("may name isiaaisxvs granar","a"));
     }
 

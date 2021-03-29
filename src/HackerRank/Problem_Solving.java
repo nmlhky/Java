@@ -16,32 +16,16 @@ public class Problem_Solving {
     public static void main(String[] args) throws IOException {
 
 
-        System.out.println(kangaroo(0,3,4,2));
+        System.out.println(kangaroo(43,2,70,2));
 
     }
 
     //Number Line Jumps https://www.hackerrank.com/challenges/kangaroo/problem
     static String kangaroo(int x1, int v1, int x2, int v2) {
-        int dist = Math.abs(x1 - x2) ;
-        int dist2 = Math.abs(x1+v1 - x2+v2);
 
-        while (dist2 <= dist){
-            dist = Math.abs(x1 - x2) ;
-            x1 += v1;
-            x2 += v2;
+        if (v1==v2 && x1!=x2) return "NO";
 
-            dist2 = Math.abs(x1 - x2);
-
-            System.out.println("x1 : " + x1);
-            System.out.println("x2 : " + x2);
-            System.out.println("dist : " + dist);
-            System.out.println("dist2 : " + dist2);
-
-            if ( dist==0) return "YES";
-
-        }
-
-        return "NO";
+        return ((x1-x2) % (v1-v2) == 0 ) && ((x2 - x1) * (v2 - v1) < 0) ? "YES" : "NO";
 
     }
 
