@@ -19,9 +19,12 @@ public class ReadingList {
 
     @Override
     public String toString() {
-        return "ReadingList{" +
-                "moduleCode='" + moduleCode + '\'' +
-                ", books=" + Arrays.toString(books) +
-                '}';
+        String result = "";
+
+        for (Book b : books) {
+            result += b.toString() + "\n";
+        }
+
+        return moduleCode + ":\n" + result;
     }
 }

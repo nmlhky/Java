@@ -25,11 +25,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", year=" + year +
-                '}';
+        return String.format("%s (%d) by %s", title, year, author);
     }
 
 
