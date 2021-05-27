@@ -1,12 +1,84 @@
 package edabit;
 
-import javax.xml.stream.events.Characters;
 import java.util.*;
 
 public class Hard {
     public static void main(String[] args) {
 
-        System.out.println(primeNumbers(30));
+        //System.out.println( Arrays.toString( filterArray(new String[]{"1", "2", "aasf", "1", "123", "123"}) ) );
+
+        String[] alph = {"a", "b", "c", "d", "e", "f", "g", "h",
+                "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+
+        System.out.println(alphabetIndex(alph, "Tesha"));
+    }
+
+    //Highest Index (With a Twist) https://edabit.com/challenge/gDYfzq68mthtmX4Q5
+    public static String alphabetIndex(String[] alphabet, String s) {
+        int max = 97;
+
+        for (int i = 0; i < s.length(); i++) {
+            int n = (int) s.toLowerCase().charAt(i);
+            if (max <  n ) max = n;
+        }
+
+        return  String.valueOf(max - 96) + (char)max ;
+    }
+
+    //Unmix My Strings https://edabit.com/challenge/XRAGxXj4KtakkvD3F
+    public static String unmix(String str) {
+        String s = "";
+
+
+        for (int i = 0; i < (str.length()/2 ) ; i++) {
+            s += str.charAt(i*2+1);
+            s += str.charAt(i*2);
+        }
+
+        return s.length() == str.length() ? s : (s += str.charAt(s.length()) );
+
+        //return str.replaceAll("(.)(.)","$2$1");
+    }
+
+    //Persistent Little Bugger https://edabit.com/challenge/zZxPQRjn8q2iB9Biv
+    public static int bugger(int num) {
+        int count = 0;
+
+        while (num > 9){
+            int newNumber = 1;
+            while (num>0){
+                newNumber *= num % 10 ;
+                num = num/10;
+            }
+            num = newNumber;
+            count++;
+        }
+
+        return count;
+
+    }
+
+
+
+    //Filter out Strings from an Array https://edabit.com/challenge/vNszi3mbJA5BhgGFX
+    public static String[] filterArray(String[] str) {
+        List<String> list = new ArrayList<>();
+
+        for (String s : str) {
+            try {
+                int intValue = Integer.parseInt(s);
+                if (!list.contains(s))
+                    list.add(s);
+            } catch (NumberFormatException e) {
+            }
+        }
+
+        return list.toArray(new String[list.size()]);
+
+//        return Arrays.stream(str)
+//                .distinct()
+//                .filter(i->i.matches("-?\\d+"))
+//                .toArray(String[]::new);
     }
 
 
