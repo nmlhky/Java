@@ -15,7 +15,7 @@ public class Palindrome {
 
         for (int i =0; i < s.length(); i++)
             for (int j = i+2; j <= s.length(); j++)
-                if (isPalindrone2(s.substring(i,j)))
+                if (isPalindrone(s.substring(i,j)))
                     count++;
 
         return count;
