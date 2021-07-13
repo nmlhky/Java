@@ -3,11 +3,29 @@ package edabit;
 import java.util.*;
 import java.util.regex.Pattern;
 
+
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(reverseSort("You've rocked the pragmatic world in the making!"));
+        System.out.println(countRepititions(new String[]{"cat", "dog", "cat", "cow", "cow", "cow"}));
 
     }
+
+    //Count How Many Times An Element Is Repeated https://edabit.com/challenge/Sj2kws46RQfxdv6Wj
+    public static Map<Object, Integer> countRepititions(Object[] e) {
+        Map map = new HashMap();
+
+
+        for (Object s : e) {
+            if (map.containsKey(s) ) map.put(s , ( (int)map.get(s) +1 ) );
+            else map.put(s,1);
+        }
+
+
+
+        return map;
+    }
+
+
 
 
     //Palindrome Descendant https://edabit.com/challenge/8zSSCYQRKC9wWWbkN

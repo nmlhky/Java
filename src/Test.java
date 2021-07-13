@@ -8,14 +8,12 @@ import static java.util.Collections.sort;
 public class Test {
     public static void main(String[] args) {
 
-
-
-    }
-
-    public static void test(int[] array){
-
+        System.out.println(test(new int[]{1,2,3,4,5}));
 
     }
 
+    public static int test(int[] array){
+        return -1;
+    }
 
 }
