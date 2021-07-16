@@ -2,27 +2,30 @@ package edabit;
 
 import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(countRepititions(new String[]{"cat", "dog", "cat", "cow", "cow", "cow"}));
+
 
     }
 
+
+
     //Count How Many Times An Element Is Repeated https://edabit.com/challenge/Sj2kws46RQfxdv6Wj
     public static Map<Object, Integer> countRepititions(Object[] e) {
-        Map map = new HashMap();
+        return Stream.of(e)
+                .collect(Collectors.toMap(obj -> obj, obj -> 1, Integer::sum, LinkedHashMap::new))
+                .entrySet()
+                .stream()
+                .sorted(Map.Entry.<Object, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
-
-        for (Object s : e) {
-            if (map.containsKey(s) ) map.put(s , ( (int)map.get(s) +1 ) );
-            else map.put(s,1);
-        }
-
-
-
-        return map;
     }
 
 
