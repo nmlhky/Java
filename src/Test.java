@@ -25,7 +25,6 @@ public class Test {
     public static String compressedString(String message) {
         // abaabbbc
 
-
         int count = 1;
         String result = "" + message.charAt(0);
 
@@ -53,8 +52,6 @@ public class Test {
 
 
 
-
-
     public static int maxDifference(List<Integer> px) {
 
         int min = px.get(0);
@@ -66,7 +63,6 @@ public class Test {
             if (px.get(i) - min > diff ) diff = px.get(i) - min ;
             System.out.println("dif  : " + diff);
         }
-
 
         return diff == 0 ? -1 :diff;
 
