@@ -3,7 +3,7 @@ import java.util.stream.Collectors;
 
 import static java.util.Collections.sort;
 
-public class Test {
+public class Test_3 {
     public static void main(String[] args) {
 
 
@@ -34,10 +34,10 @@ public class Test {
             }
         }
 
-
         return map1.equals(map2) ? true : false;
 
     }
+
 
 
 
