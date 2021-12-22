@@ -1,75 +1,44 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Collections.sort;
 
 public class Test {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<Integer>();
-        list.add(6);
-        list.add(7);
-        list.add(9);
-        list.add(5);
-        list.add(6);
-        list.add(3);
-        list.add(2);
-        //System.out.println(maxDifference(list));
-        System.out.println(compressedString("abaabbbc"));
 
 
+        System.out.println(isAnagram("trianglee" , "integral"));
     }
 
-    public static String compressedString(String message) {
-        // abaabbbc
+    public static boolean isAnagram(String s1 , String s2) {
+        if (s1.length() != s2.length()) return false;
 
+        HashMap map1 = new HashMap<String,Integer>();
+        HashMap map2 = new HashMap();
 
-        int count = 1;
-        String result = "" + message.charAt(0);
+        for (int i = 0; i < s1.length(); i++) {
+            char c1 = s1.charAt(i);
+            char c2 = s2.charAt(i);
 
-        for (int i = 1; i < message.length(); i++) {
-            char c = message.charAt(i-1);
-            char c2 = message.charAt(i);
-            if (c == c2) {
-                count++;
-                continue;
-            }
-            else if (count>1){
-                result = result + count + c2;
-                count = 1;
-                continue;
+            if (!map1.containsKey(c1)) {
+                map1.put(c1,1);
             }
             else {
-                result += c2;
+                map1.put(c1,(int)(map1.get(c1) ) + 1 );
+            }
+            if (!map2.containsKey(c2)) {
+                map2.put(c2,1);
+            }
+            else {
+                map2.put(c2,(int)(map2.get(c2) ) + 1 );
             }
         }
-        if (count > 1) result += count;
-
-        return result;
-
-    }
 
 
-
-
-
-    public static int maxDifference(List<Integer> px) {
-
-        int min = px.get(0);
-        int diff = 0;
-
-        for (int i = 0; i < px.size(); i++) {
-            if (px.get(i) < min ) min = px.get(i);
-            System.out.println(min);
-            if (px.get(i) - min > diff ) diff = px.get(i) - min ;
-            System.out.println("dif  : " + diff);
-        }
-
-
-        return diff == 0 ? -1 :diff;
+        return map1.equals(map2) ? true : false;
 
     }
+
+
 
 }
