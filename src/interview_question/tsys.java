@@ -1,20 +1,22 @@
+package interview_question;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
 import static java.util.Collections.sort;
 
-public class Test_3 {
+public class tsys {
     public static void main(String[] args) {
 
 
-        System.out.println(isAnagram("trianglee" , "integral"));
+        System.out.println(isAnagram("triangle" , "integral"));
     }
 
     public static boolean isAnagram(String s1 , String s2) {
         if (s1.length() != s2.length()) return false;
 
         HashMap map1 = new HashMap<String,Integer>();
-        HashMap map2 = new HashMap();
+        HashMap map2 = new HashMap<String,Integer>();
 
         for (int i = 0; i < s1.length(); i++) {
             char c1 = s1.charAt(i);
@@ -34,7 +36,7 @@ public class Test_3 {
             }
         }
 
-        return map1.equals(map2) ? true : false;
+        return map1.equals(map2) ;
 
     }
 
