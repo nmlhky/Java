@@ -13,6 +13,47 @@ public class Hard {
         System.out.println(alphabetIndex(alph, "Tesha"));
     }
 
+    //Increasing or Decreasing Numbers https://edabit.com/challenge/5DAuj96xupYTbFTXw
+    public static int incDec(int n) {
+
+        int count = 0;
+
+        for (int i = 1; i <= (int) Math.pow(10, n); i++) {
+
+            boolean bigger = true;
+            int last = i%10;
+            int last2 = i%10;
+            int k = i;
+            int m = i;
+
+            if (last >= k%10){
+                while (k>0){
+                    if (last < k%10) bigger = false;
+                    last = k %10;
+                    k = k /10;
+                    if (!bigger) break;
+                }
+            }
+            boolean smaller = true;
+            if (last2 <= m%10){
+                while (m>0){
+                    //System.out.println("smal "+k);
+                    if (last2 > m%10) smaller = false;
+                    last2 = m %10;
+                    m = m /10;
+                    if (!smaller) break;
+                }
+            }
+
+            if (bigger || smaller) {
+                count++;
+            }
+
+        }
+
+        return count;
+    }
+
     //Highest Index (With a Twist) https://edabit.com/challenge/gDYfzq68mthtmX4Q5
     public static String alphabetIndex(String[] alphabet, String s) {
         int max = 97;
@@ -171,13 +212,10 @@ public class Hard {
     public static String sigilize2(String desire) {
         HashSet<Character> hs = new HashSet<>();
         String result = "";
-        for (int i = 0; i < desire.length(); i++) {
-            if (!isVowel(desire.charAt(i))) {
-                if (hs.add(desire.charAt(i))){
+        for (int i = 0; i < desire.length(); i++)
+            if (!isVowel(desire.charAt(i)))
+                if (hs.add(desire.charAt(i)))
                     result += desire.charAt(i);
-                }
-            }
-        }
 
         return result;
     }
