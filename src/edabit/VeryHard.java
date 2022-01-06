@@ -6,8 +6,41 @@ import java.util.*;
 public class VeryHard {
     public static void main(String[] args) {
 
-        System.out.println(digitsCount(0));
+        //Yellow: 303, Gray: 102", Challenge.weHaveHouse(8, 15, 12, 6)
+        //Yellow: 581, Gray: 146", Challenge.weHaveHouse(9, 20, 18, 8));
+        //Yellow: 689, Gray: 194", Challenge.weHaveHouse(10, 25, 25, 0));
+        System.out.println(weHaveHouse(8, 15, 12, 6));
     }
+
+    //We Have a House https://edabit.com/challenge/YMT2d6RFcsvNv58cd
+    public static String weHaveHouse(int hh, int hw, int hd, int rh) {
+        if (hh+rh >20) return "No permission.";
+        if (hw >44 || hd >44) return "House too big.";
+        if (hw < 15 || hd < 11 || hh < 5) return "House too small.";
+
+        int yellow =  (hw*rh)  + (( hw + hd ) * 2 ) * (hh-2) - (12*8) - (3*5);
+
+        int gray = ( (hw+hd )* 2 -3 ) * 2 ;
+
+        return "Yellow: " + yellow + ", Gray: " + gray;
+    }
+
+
+    //Product of Digits of Sum  https://edabit.com/challenge/PZh6svj6RjiQishTG
+    public static long sumDigProd(int ... nums) {
+        long n = Arrays.stream(nums).sum();
+        while (n > 9){
+            long temp = 1;
+            while (n > 0){
+                temp *= n%10;
+                n /= 10;
+            }
+            n = temp;
+        }
+
+        return n;
+    }
+
 
     //Recursion: Count The Digits https://edabit.com/challenge/vpSCPsQKcQwnFdMS4
     public static int digitsCount(long n) {
@@ -54,7 +87,7 @@ public class VeryHard {
         }
 
         //check is same vowel with first word
-        boolean isSameVowel = true;
+        boolean isSameVowel ;
         ArrayList<String> list = new ArrayList<>();
         for (String word : words) {
             isSameVowel = true;
