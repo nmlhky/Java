@@ -13,7 +13,6 @@ public class Expert {
     }
 
 
-
     //Count How Many Times An Element Is Repeated https://edabit.com/challenge/Sj2kws46RQfxdv6Wj
     public static Map<Object, Integer> countRepititions(Object[] e) {
         return Stream.of(e)
@@ -27,8 +26,6 @@ public class Expert {
                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
 
     }
-
-
 
 
     //Palindrome Descendant https://edabit.com/challenge/8zSSCYQRKC9wWWbkN
@@ -57,7 +54,6 @@ public class Expert {
 
         return result.substring(0,result.length()-1);
     }
-
 
 
     //Word Buckets - https://edabit.com/challenge/3FAMXz4wAYGqpCtDR
@@ -92,7 +88,6 @@ public class Expert {
 
         return list.toArray(new String[list.size()]);
     }
-
 
 
     //license plate - https://edabit.com/challenge/HssePSisNvLpv72zD
