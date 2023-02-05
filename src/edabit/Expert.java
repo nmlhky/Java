@@ -1,5 +1,6 @@
 package edabit;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -8,10 +9,60 @@ import java.util.stream.Stream;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println("    ");
+        System.out.println(sentenceSearcher("I love Tesh. My world evolves in hers. My love for life.", -10 ));
 
     }
 
+    //Sentence Searcher II https://edabit.com/challenge/rNYqwDqDFZwjZ6A4g
+    public static String sentenceSearcher(String str, int n) {
+        String[] words = str.split(" ");
+        int start=0, end=words.length;
+
+        if (n<0)
+            n= words.length+n;
+
+        for (int i = 0; i < words.length; i++) {
+            if( words[i].matches(".*[.!?]") ) {
+                if (i+1>n){
+                    end  = i+1;
+                    break;
+                }
+                start = i+1;
+            }
+        }
+
+        String result = "";
+
+        for (int i = start; i < end; i++) {
+            result = result + words[i] + " ";
+        }
+
+        return  result.substring(0,result.length()  -1);
+    }
+
+    //Kaprekar's Constant https://edabit.com/challenge/eBkknBKXvMm8bDo8M.
+    public static int kaprekar(int num) {
+        int count = 0;
+        while (num != 6174){
+            num = kaprekar2(num);
+            count++;
+        }
+        return count;
+    }
+    public static int kaprekar2(int num) {
+        ArrayList<Integer> list  = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            list.add(num%10);
+            num = num/10;
+        }
+        Collections.sort(list, Collections.reverseOrder());
+
+        int n = list.get(0)*1000 + list.get(1)*100 + list.get(2)*10 + list.get(3);
+        int m = list.get(3)*1000 + list.get(2)*100 + list.get(1)*10 + list.get(0);
+
+        return n-m;
+    }
 
     //Count How Many Times An Element Is Repeated https://edabit.com/challenge/Sj2kws46RQfxdv6Wj
     public static Map<Object, Integer> countRepititions(Object[] e) {

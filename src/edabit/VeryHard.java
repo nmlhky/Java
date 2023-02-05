@@ -5,11 +5,25 @@ import java.util.*;
 
 public class VeryHard {
     public static void main(String[] args) {
+        System.out.println( reverseWords("  hello world!  "));
 
-        //Yellow: 303, Gray: 102", Challenge.weHaveHouse(8, 15, 12, 6)
-        //Yellow: 581, Gray: 146", Challenge.weHaveHouse(9, 20, 18, 8));
-        //Yellow: 689, Gray: 194", Challenge.weHaveHouse(10, 25, 25, 0));
-        System.out.println(weHaveHouse(8, 15, 12, 6));
+    }
+
+
+    //Reverse Words in a String https://edabit.com/challenge/njGTBhXa7zP3pvsnp
+    public static String reverseWords(String s) {
+        String s2 = s.replaceAll("\\s+", " ");
+        if (s2.charAt(0) == ' ')
+            s2 = s2.substring(1,s2.length());
+        String[] str = s2.split(" ");
+
+        String result = "";
+        for (int i = 0; i < str.length; i++) {
+            result += str[str.length-1-i];
+            result += " ";
+        }
+
+        return result.substring(0,result.length()-1);
     }
 
     //We Have a House https://edabit.com/challenge/YMT2d6RFcsvNv58cd

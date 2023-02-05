@@ -4,13 +4,8 @@ import java.util.*;
 
 public class Hard {
     public static void main(String[] args) {
+        System.out.println("ok");
 
-        //System.out.println( Arrays.toString( filterArray(new String[]{"1", "2", "aasf", "1", "123", "123"}) ) );
-
-        String[] alph = {"a", "b", "c", "d", "e", "f", "g", "h",
-                "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-
-        System.out.println(alphabetIndex(alph, "Tesha"));
     }
 
     //Increasing or Decreasing Numbers https://edabit.com/challenge/5DAuj96xupYTbFTXw
