@@ -1,4 +1,4 @@
-package LearnNewThing;
+package myFunctions;
 
 public class IfElseOneLine {
     public static void main(String[] args) {

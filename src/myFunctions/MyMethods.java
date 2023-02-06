@@ -1,3 +1,4 @@
+package myFunctions;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -12,6 +13,30 @@ public class MyMethods {
         return new HashSet<>(Arrays.asList(s.split(" "))).toString();
     }
 
+    public static void RemoveIF_list(String[] args) {
+        String[] arr = {"hi","how","are","you"};
+        List<String> list = new ArrayList<>(Arrays.asList(arr));
+        if (list.removeIf( s -> s.equals("are"))){
+            System.out.println( "removed");
+        }
+        System.out.println(list);
+    }
+
+    public static void ReverseTwoInt(String[] args) {
+        int a = 10;
+        int b = 5;
+
+        a = a+b;
+        b = a-b;
+        a = a-b;
+    }
+
+    public static void PrintDiffirentNumber(String[] args) {
+        System.out.println(5^5^6); // 6
+        System.out.println(5^6^5); // 6
+
+    }
+
     //12345 --> 54321
     public static int reverseInt(int num){
         int reverse = 0;
@@ -24,6 +49,13 @@ public class MyMethods {
         return reverse;
     }
 
+    public static Boolean is_palindrome(int a){
+        return  Integer.toString(a).equals( new StringBuilder(Integer.toString(a)).reverse().toString() );
+    }
+
+    public static Boolean is_palindrome(String a){
+        return  a.equals( new StringBuilder(a).reverse().toString() );
+    }
 
     public static boolean isVowel(char ch) {
         ch = Character.toLowerCase(ch);

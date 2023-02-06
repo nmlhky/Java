@@ -1,11 +1,28 @@
 package edabit;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Hard {
     public static void main(String[] args) {
-        System.out.println("ok");
+        System.out.println(isPositiveDominant(new int[]{1, 1, 3, 2, -3, -4}));
 
+    }
+
+    //Positive Dominant https://edabit.com/challenge/zi3zKpBLYHqtmSf5m
+    public static boolean isPositiveDominant(int[] n) {
+        int po=0 , ne=0;
+
+        Set<Integer> set = Arrays.stream(n).boxed().collect(Collectors.toSet());
+
+        for (int i : set) {
+            if(i>0)
+                po++;
+            if(i<0)
+                ne++;
+        }
+
+        return po>ne ;
     }
 
     //Increasing or Decreasing Numbers https://edabit.com/challenge/5DAuj96xupYTbFTXw

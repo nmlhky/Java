@@ -1,6 +1,5 @@
 package edabit;
 
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -9,8 +8,23 @@ import java.util.stream.Stream;
 
 public class Expert {
     public static void main(String[] args) {
-        System.out.println(sentenceSearcher("I love Tesh. My world evolves in hers. My love for life.", -10 ));
 
+
+    }
+
+    //Recursion: Reversed List Index https://edabit.com/challenge/TcLfFXvBvDqRL82a2
+    public static Object[] getItemsAt(Object[] arr, String par) {
+        int startPoint =  0;
+        if(par == "odd" & arr.length%2==0 || par == "even" & arr.length%2==1)
+            startPoint = 1;
+
+        List<Object> list = new ArrayList<>();
+
+        for (int i = startPoint, j=0; i < arr.length; i += 2, j++) {
+           list.add(arr[i]);
+        }
+
+        return list.toArray(new Object[list.size()]);
     }
 
     //Sentence Searcher II https://edabit.com/challenge/rNYqwDqDFZwjZ6A4g

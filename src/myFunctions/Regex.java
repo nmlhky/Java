@@ -1,4 +1,4 @@
-package LearnNewThing;
+package myFunctions;
 
 import java.util.regex.Pattern;
 
