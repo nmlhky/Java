@@ -9,8 +9,6 @@ public class Regex {
         // nokta, virgulu .. silme
         str.replaceAll("\\p{Punct}", ""); //Hey Parents Surprise Fruit Juice Is Not Fruit
 
-
-
         String s = "my name 5 is melih kaya kaya kaya";
 
         // rakamla baslamiyorsa ^ baslangic  [^ degilse \\d rakam ] .* herhangi karakter
@@ -25,5 +23,10 @@ public class Regex {
 
         int  result = Pattern.compile(".*[a].*").matcher(st).groupCount();
         System.out.println(result);
+    }
+
+    // match 4 number or 6 numbere
+    public static boolean validate(String pin) {
+        return pin.matches("^(\\d{4}|\\d{6})$");
     }
 }

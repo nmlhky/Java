@@ -1,12 +1,17 @@
 package edabit;
 
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Hard {
     public static void main(String[] args) {
-        System.out.println(isPositiveDominant(new int[]{1, 1, 3, 2, -3, -4}));
+        System.out.println(validate("12131"));
+    }
 
+    //RegEx: Validate PIN https://edabit.com/challenge/sCP58J9vcexchgwo7
+    public static boolean validate(String pin) {
+        return pin.matches("^(\\d{4}|\\d{6})$");
     }
 
     //Positive Dominant https://edabit.com/challenge/zi3zKpBLYHqtmSf5m
