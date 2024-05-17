@@ -1,7 +1,5 @@
 package interview_question;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,7 +8,6 @@ public class Balloon {
         //BALLOON
         String str = "BALLOONBALsdadasdsaadsadasdsadsasadsadasasdLOONBALLOONasdsadaa";
         System. out. println(solution(str));
-
     }
 
     public static int solution(String s) { // ## Author Melih Kaya ##
@@ -21,7 +18,7 @@ public class Balloon {
         boolean isHas = true;
         int count = 0;
 
-        while (isHas) { //chekc list has b,a,l,l,o,o,n  if has loop countinued and count++
+        while (isHas) { //check list has b,a,l,l,o,o,n  if has loop continued and count++
             for (char c : arr) {
                 if (list.contains(c)) {
                     list.remove((Character) c);
