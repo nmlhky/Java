@@ -38,4 +38,3 @@ public class Count_Tiny_Pairs {
         return result.toString();
     }
 }
-

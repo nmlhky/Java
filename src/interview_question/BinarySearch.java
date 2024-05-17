@@ -6,7 +6,7 @@ public class BinarySearch {
     public static void main(String[] args) {
 
         // initializing unsorted array
-        Object arr[] = {10,2,33,22,69};
+        Object[] arr = {10,2,33,22,69};
 
         // sorting array
         Arrays.sort(arr);
